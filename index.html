@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wir lernen Deutsch">
+    <title>Deutschkurs</title>
+    <link rel="icon" href="photos/logo.png">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+      <div class="container">
+        <a href="index.html" class="lo"><img src="photos/thin.png" alt="logo"></a>
+        <div class="burger" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <ul id="nav-links">
+            <li><a href="#about">Willkommen</a></li>
+            <li><a href="#units">Kapitel</a></li>
+            <li><a href="#games">Spiele</a></li>
+            <li><a href="#us">Über uns</a></li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="about" id="about">
+        <div class="container">
+          <h2 class="heading b" title="ترحيب">Willkommen</h2>
+          <ul lang="ar" dir="rtl">
+            <li><p> اهلا بيكو في موقع <a href="index.html"><span class="sitename">Deutschkurs</span></a></p></li>
+            <li><p>الموقع دا اتعمل عشان يتسجل عليه ملخص محتوى الكورس كمرجع</p></li>
+            <li><p> كان ممكن اترجم الموقع كله ل <span class="special" title="المانى">Deutsch</span> من <span class="special" title="انا قولت بترجم الماني مش انجليزي &#128516;">Google Translate</span> بس كنا هنرجع نترجمه تاني لعربى فمش هنعمل فيها المان &#128516;. هستنا لما نتمكن من اللغة واحده واحده واقلب الموقع كله ل <span class="special" title="المانى">Deutsch</span> </p></li>
+            <li><p> لاحظ الوان الموقع متاخدة من علم <span class="special" title="المانيا">Deutschland</span> مش صدفة طبعا &#128516;</p></li>
+            <li><p>ممكن جدا جدا اكتب حاجه غلط . فا اي حاجه مكتوبة بال <span class="special" title="المانى">Deutsch</span> راجعوها معايا</p></li>
+            <li><p>لو فتحت الموقع من كمبيوتر او لابتوب هتلاقى مزايا زياده ذي مثلا لو وقفت بالموس علي كلمة او جملة بال <span class="special" title="المانى">Deutsch</span> هتلاقي ترجمتها بالعربي ظهرت</p></li>
+            <li><p>لو حد بيفهم في ال <span class="special" title="(UI) User Interface  (UX) User Experience" dir="ltr">UI UX design</span> او ال <span class="special" title="ماقولنا مبترجمش انجليزي">design </span>عموما يريت يختار توزيع للالوان او يغيرها عشان تبقى متناسقة عشان دا مش مجالى</p></li>
+            <li><p>لو طلع في حقوق ملكية للمحتوي اللي كاتبه فاللاسف هاطر الغي الموقع</p></li>
+          </ul>
+        </div>
+      </div>
+      <div class="units" id="units">
+        <div class="container">
+          <h2 class="heading r" title="وحدات">Kapitel</h2>
+          <div class="units-content">
+            <div class="toggle">
+              <div class="toggle-header">
+                <span>Kapitel 1</span>
+                <span class="triangle">&#9654;</span>
+              </div>
+              <div class="toggle-content">
+                <p class="unit-name">Guten Tag!</p>
+                <div class="nested-toggle">
+                  <div class="nested-toggle-header">
+                    <span>grüßen und verabschieden</span>
+                    <span class="triangle">&#9654;</span>
+                  </div>
+                  <div class="nested-toggle-content">
+                    <p>Guten Morgen!</p>
+                    <p>Guten Tag!</p>
+                    <p>Guten Abend!</p>
+                    <p>Gute Nacht!</p>
+                    <p>Auf Wiedersehen!</p>
+                    <p>Tschüs!</p>
+                    <p>Ciao!</p>
+                    <p>Bis bald!</p>
+                  </div>
+                </div>
+                <div class="nested-toggle">
+                  <div class="nested-toggle-header">
+                    <span>über sich und andere sprechen</span>
+                    <span class="triangle">&#9654;</span>
+                  </div>
+                  <div class="nested-toggle-content">
+                    <div class="tab">
+                      <div class="title">Formell</div>
+                      <div class="quest special">
+                        <p>Frage</p>
+                        <p>Antwort</p>
+                      </div>
+                      <div class="quest">
+                        <p>Wie heißen Sie?</p>
+                        <p>Ich heiße ...(Vorname Nachname).</p>
+                      </div>
+                      <div class="quest">
+                        <p>Wie ist Ihr Name?</p>
+                        <p>Mein Name ist ...(Vorname Nachname).</p>
+                      </div>
+                      <div class="quest">
+                        <p>Wer sind Sie?</p>
+                        <p>Ich bin ...(Vorname Nachname).</p>
+                      </div>
+                      <div class="quest">
+                        <p>Woher kommen Sie?</p>
+                        <p>Ich komme aus ...(Ägypten aus Kairo).</p>
+                      </div>
+                      <div class="quest">
+                        <p>Wo wohnen Sie?</p>
+                        <p>Ich wohne in ...(Deutschland in Berlin).</p>
+                      </div>
+                      <div class="quest">
+                        <p>Welche Sprachen sprechen Sie?</p>
+                        <p>Ich spreche ...(Arabisch, Englisch und etwas Deutsch).</p>
+                      </div>
+                      <div class="quest">
+                        <p>Was arbeiten Sie?</p>
+                        <p>Ich bin ...(Student).</p>
+                      </div>
+                    </div>
+                    <div class="tab">
+                      <div class="title">Informell</div>
+                      <div class="quest special">
+                        <p>Frage</p>
+                        <p>Antwort</p>
+                      </div>
+                      <div class="quest">
+                        <p>Wie heißt du?</p>
+                        <p>Ich heiße ...(Vorname).</p>
+                      </div>
+                      <div class="quest">
+                        <p>Wie ist dein Name?</p>
+                        <p>Mein Name ist ...(Vorname).</p>
+                      </div>
+                      <div class="quest">
+                        <p>Wer bist du?</p>
+                        <p>Ich bin ...(Vorname).</p>
+                      </div>
+                      <div class="quest">
+                        <p>Woher kommst du?</p>
+                        <p>Ich komme aus ...(Ägypten aus Kairo).</p>
+                      </div>
+                      <div class="quest">
+                        <p>Wo wohnst du?</p>
+                        <p>Ich wohne in ...(Deutschland in Berlin).</p>
+                      </div>
+                      <div class="quest">
+                        <p>Welche Sprachen sprichst du?</p>
+                        <p>Ich spreche ...(Arabisch, Englisch und etwas Deutsch).</p>
+                      </div>
+                      <div class="quest">
+                        <p>Was arbeitest du?</p>
+                        <p>Ich bin ...(Student).</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="nested-toggle">
+                  <div class="nested-toggle-header">
+                    <span>Befinden</span>
+                    <span class="triangle">&#9654;</span>
+                  </div>
+                  <div class="nested-toggle-content">
+                    <p>Wie geht es Ihnen? (Formell)</p>
+                    <p>Wie geht's dir? (Informell)</p>
+                    <p>Wie geht's? (Informell)</p>
+                    <div class="feelings">
+                      <div class="parent-f">
+                        <div class="emoji">&#128512;&#128512;</div>
+                        <div class="words">
+                          <p>Sehr gut</p>
+                          <p>Prima</p>
+                          <p>Super</p>
+                          <p>Toll</p>
+                        </div>
+                      </div>
+                      <div class="parent-f">
+                        <div class="emoji">&#128512;</div>
+                        <div class="words">
+                          <p>Gut</p>
+                        </div>
+                      </div>
+                      <div class="parent-f">
+                        <div class="emoji">&#128528;</div>
+                        <div class="words">
+                          <p>Es geht</p>
+                          <p>Ganz gut</p>
+                        </div>
+                      </div>
+                      <div class="parent-f">
+                        <div class="emoji">&#128543;</div>
+                        <div class="words">
+                          <p>Nicht so gut</p>
+                          <p>Schlecht</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="nested-toggle">
+                  <div class="nested-toggle-header">
+                    <span>Zahlen</span>
+                    <span class="triangle">&#9654;</span>
+                  </div>
+                  <div class="nested-toggle-content">
+                    <div class="numbers">
+                      <div class="number">1 eins</div>
+                      <div class="number">2 zwei</div>
+                      <div class="number">3 drei</div>
+                      <div class="number">4 vier</div>
+                      <div class="number">5 fünf</div>
+                      <div class="number">6 sechs</div>
+                      <div class="number">7 sieben</div>
+                      <div class="number">8 acht</div>
+                      <div class="number">9 neun</div>
+                      <div class="number">10 zehn</div>
+                      <div class="number">11 elf</div>
+                      <div class="number">12 zwölf</div>
+                      <div class="number">13 dreizehn</div>
+                      <div class="number">14 vierzehn</div>
+                      <div class="number">15 fünfzehn</div>
+                      <div class="number">16 sechzehn</div>
+                      <div class="number">17 siebzehn</div>
+                      <div class="number">18 achtzehn</div>
+                      <div class="number">19 neunzehn</div>
+                      <div class="number">20 zwanzig</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="nested-toggle">
+                  <div class="nested-toggle-header">
+                    <span>Telefonnummer , E-Mail-Adresse und buchstabieren</span>
+                    <span class="triangle">&#9654;</span>
+                  </div>
+                  <div class="nested-toggle-content">
+                    <div class="quest special">
+                      <p>Frage</p>
+                      <p>Antwort</p>
+                    </div>
+                    <div class="quest">
+                      <p>Wie bitte! Buchstabieren Sie Ihren Namen?</p>
+                      <p>S I H A</p>
+                    </div>
+                    <div class="quest">
+                      <p>Wie ist Ihre Telefonnummer?</p>
+                      <p>Meine Telefonnummer ist 0100...</p>
+                    </div>
+                    <div class="quest">
+                      <p>Wie ist Ihre E-Mail-Adresse?</p>
+                      <p>Meine E-Mail-Adresse ist test@test.com</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="nested-toggle">
+                  <div class="nested-toggle-header">
+                    <span>Länder und Sprachen</span>
+                    <span class="triangle">&#9654;</span>
+                  </div>
+                  <div class="nested-toggle-content lang">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Flagge</th>
+                          <th>Länder</th>
+                          <th>Sprachen</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><img src="photos/flags/eg.webp" alt="eg" class="sp-photo" title="كيميت جاءت ثم جاء التاريخ"></td>
+                          <td>Ägypten</td>
+                          <td>Arabisch</td>
+                        </tr>
+                        <tr>
+                          <td><img src="photos/flags/germ.png" alt="ge"><br><img src="photos/flags/aust.png" alt="aus"></td>
+                          <td><p>Deutschland</p><p>Österreich</p></td>
+                          <td>Deutsch</td>
+                        </tr>
+                        <tr>
+                          <td><img src="photos/flags/swiz.png" alt="sw"></td>
+                          <td>der Schweiz</td>
+                          <td><p>Deutsch</p><p>Französisch</p><p>Italienisch</p><p>Rätoromanisch</p></td>
+                        </tr>
+                        <tr>
+                          <td><img src="photos/flags/brazil.webp" alt="br"><br><img src="photos/flags/port.webp" alt="port"></td>
+                          <td><p>Brasilien</p><p>Portugal</p></td>
+                          <td>Portugiesisch</td>
+                        </tr>
+                        <tr>
+                          <td><img src="photos/flags/mexi.webp" alt="mex"><br><img src="photos/flags/span.webp" alt="span"></td>
+                          <td><p>Mexiko</p><p>Spanien</p></td>
+                          <td>Spanisch</td>
+                        </tr>
+                        <tr>
+                          <td><img src="photos/flags/franc.png" alt="fr"></td>
+                          <td>Frankreich</td>
+                          <td>Französisch</td>
+                        </tr>
+                        <tr>
+                          <td><img src="photos/flags/gree.png" alt="gr"></td>
+                          <td>Griechenland</td>
+                          <td>Griechisch</td>
+                        </tr>
+                        <tr>
+                          <td><img src="photos/flags/ital.webp" alt="it"></td>
+                          <td>Italien</td>
+                          <td>Italienisch</td>
+                        </tr>
+                        <tr>
+                          <td><img src="photos/flags/ja.png" alt="ja"></td>
+                          <td>Japan</td>
+                          <td>Japanisch</td>
+                        </tr>
+                        <tr>
+                          <td><img src="photos/flags/polen.png" alt="pol"></td>
+                          <td>Polen</td>
+                          <td>Polnisch</td>
+                        </tr>
+                        <tr>
+                          <td><img src="photos/flags/russi.png" alt="rus"></td>
+                          <td>Russland</td>
+                          <td>Russisch</td>
+                        </tr>
+                        <tr>
+                          <td><img src="photos/flags/tu.png" alt="tu"></td>
+                          <td>der Türkei</td>
+                          <td>Türkisch</td>
+                        </tr>
+                        <tr>
+                          <td><img src="photos/flags/ukr.png" alt="uk"></td>
+                          <td>der Ukraine</td>
+                          <td>Ukrainisch</td>
+                        </tr>
+                        <tr>
+                          <td><img src="photos/flags/usa.webp" alt="usa"></td>
+                          <td>den USA</td>
+                          <td>Englisch</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="toggle">
+              <div class="toggle-header">
+                <span>Kapitel 2</span>
+                <span class="triangle">&#9654;</span>
+              </div>
+              <div class="toggle-content">
+                <p class="unit-name">Freunde, Kollegen und ich </p>
+                <div lang="ar" dir="rtl" class="meme"><span>اجبلك محتوي <span>Kapitel 2</span> منين واحنا لسه مخدنهاش</span><img src="photos/meme.jpeg" alt="meme"></div>
+                <!-- <div class="nested-toggle">
+                  <div class="nested-toggle-header">
+                    <span>Subunit 2.1</span>
+                    <span class="triangle">&#9654;</span>
+                  </div>
+                  <div class="nested-toggle-content">
+                    <p>Content for Subunit 2.1</p>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+            <!-- <div class="toggle">
+              <div class="toggle-header">
+                <span>Unit 3</span>
+                <span class="triangle">&#9654;</span>
+              </div>
+              <div class="toggle-content">
+                <p class="unit-name">Content for Unit 3</p>
+                <div class="nested-toggle">
+                  <div class="nested-toggle-header">
+                    <span>Subunit 3.1</span>
+                    <span class="triangle">&#9654;</span>
+                  </div>
+                  <div class="nested-toggle-content">
+                    <p>Content for Subunit 3.1</p>
+                  </div>
+                </div>
+                <div class="nested-toggle">
+                  <div class="nested-toggle-header">
+                    <span>Subunit 3.2</span>
+                    <span class="triangle">&#9654;</span>
+                  </div>
+                  <div class="nested-toggle-content">
+                    <p>Content for Subunit 3.2</p>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="games" id="games">
+        <div class="container">
+          <h2 class="heading g" title="العاب">Spiele</h2>
+        </div>
+      </div>
+      <div class="us" id="us">
+        <div class="container"></div>
+      </div>
+    </main>
+    <footer>
+      <p dir="rtl" lang="ar">تم بناء الموقع بواسطة <a href="https://siha2.github.io/portfolio/"><img src="photos/me.png" alt="developer" title="Siha Rateeb"></a></p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
