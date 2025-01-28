@@ -246,17 +246,6 @@ header ul li:hover a {
 .triangle.rotate {
   transform: rotate(90deg);
 }
-.toggle-content .meme {
-  background-color: var(--gray-color);
-  padding: 10px;
-  line-height: 2;
-}
-.toggle-content .meme img {
-  width: 60px;
-  height: 60px;
-  margin-right: 10px;
-  vertical-align: middle;
-}
 .units .tab .title {
   text-align: center;
   font-weight: bold;
@@ -424,52 +413,6 @@ header ul li:hover a {
   padding: 10px;
 } */
 /* end games */
-/* start us */
-.us {
-  padding-top: 60px;
-  padding-bottom: 60px;
-  background-color: var(--gold-color);
-  color: var(--black-color);
-}
-.us .mrs {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.us .mrs img {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  background-color: white;
-  border: 2px solid var(--black-color);
-}
-@media (max-width: 350px) {
-  .us .mrs img {
-    width: 200px;
-    height: 200px;
-  }
-}
-.us .students {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-  gap: 40px;
-  text-align: center;
-}
-.us .student img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: white;
-  border: 2px solid var(--black-color);
-}
-.us p {
-  font-weight: bold;
-}
-/* .us .us-note {
-  margin-top: 20px;
-  font-weight: bold;
-  padding: 0 5px;
-} */
-/* end us */
 /* starting footer */
 footer {
   background-color: var(--black-color);
