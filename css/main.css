@@ -8,9 +8,10 @@
 :root {
   --black-color: #000000;
   --gold-color: #FFD700;
+  --light-gold: #ffe452;
   --gray-color: #eee;
   --red-color: #d50000;
-  --light-gold: #ffe452;
+  --dark-red: #850000;
 }
 html {
   scroll-behavior: smooth;
@@ -190,59 +191,26 @@ header ul li:hover a {
 
 }
 /* ending header */
-/* starting about */
-.about {
-  background-color: var(--gold-color);
-  padding-top: 60px;
-  padding-bottom: 60px;
-}
-.about {
-  padding-top: 90px; /*because the header be fixed*/
-}
-.about ul li {
-  display: flex;
-}
-.about ul li span {
-  margin-left: 10px;
-}
-.about ul > *:not(:last-child) {
-  margin-bottom: 20px;
-}
-.about .sitename {
-  background: black;
-  color: var(--gold-color);
-  padding: 6px;
-  border-radius: 10px;
-  font-weight: bold;
-}
-.about .special {
-  font-weight: bold;
-}
-.about .test-sound {
-  padding: 5px;
-  background: var(--light-gold);
-  font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-/* end about */
 /* start units */
 .units {
   padding-top: 60px;
   padding-bottom: 60px;
-  background-color: var(--black-color);
+  background-color: var(--gold-color);
   /* color: var(--gold-color); */
   color: var(--red-color);
+}
+.units {
+  padding-top: 90px; /*because the fixed header*/
 }
 .toggle, .nested-toggle {
   margin-bottom: 10px;
   /* border-radius: 6px;
   overflow: hidden; */
-}
-.nested-toggle {
   border: 2px solid var(--red-color);
 }
-
+.toggle {
+  border-color: var(--dark-red);
+}
 .toggle-header, .nested-toggle-header {
   display: flex;
   justify-content: space-between;
@@ -253,10 +221,13 @@ header ul li:hover a {
 }
 .toggle-header {
   background-color: #fff;
-  color: var(--black-color);
+  color: var(--dark-red);
+  font-weight: bold;
 }
 .toggle .unit-name {
-  color: var(--black-color);
+  color: var(--dark-red);
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 .toggle-content, .nested-toggle-content {
   display: none;
@@ -447,11 +418,11 @@ header ul li:hover a {
   padding: 5px;
   border-radius: 5px;
 }
-.games .game-note {
+/* .games .game-note {
   margin-top: 20px;
   font-weight: bold;
   padding: 10px;
-}
+} */
 /* end games */
 /* start us */
 .us {
@@ -493,11 +464,11 @@ header ul li:hover a {
 .us p {
   font-weight: bold;
 }
-.us .us-note {
+/* .us .us-note {
   margin-top: 20px;
   font-weight: bold;
   padding: 0 5px;
-}
+} */
 /* end us */
 /* starting footer */
 footer {
@@ -518,7 +489,15 @@ footer p {
 footer a {
   display: flex;
   align-items: center;
-  margin-right: 10px;
+  margin: 0 10px;
+}
+@media (max-width: 400px) {
+  footer p {
+    flex-direction: column;
+  }
+  footer a {
+    margin: 10px 0;
+  }
 }
 footer img {
   width: 50px;

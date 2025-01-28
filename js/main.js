@@ -18,8 +18,3 @@ document.querySelectorAll('.toggle-header, .nested-toggle-header').forEach(heade
     toggleContent(this);
   });
 });
-
-function playSound() {
-  const audio = document.querySelector('audio');
-  audio.play();
-}
