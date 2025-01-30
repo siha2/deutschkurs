@@ -12,6 +12,11 @@
   --gray-color: #eee;
   --red-color: #d50000;
   --dark-red: #850000;
+  --a-green: #3a4643;
+  --b-green: #4c7d73;
+  --c-green: #60d9c3;
+  --d-green: #b1ece0;
+  --e-green: #ecfaf6;
 }
 html {
   scroll-behavior: smooth;

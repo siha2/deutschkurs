@@ -18,3 +18,15 @@ document.querySelectorAll('.toggle-header, .nested-toggle-header').forEach(heade
     toggleContent(this);
   });
 });
+
+// function playNumberSound(number) {
+//   const audio = new Audio(`sounds/numbers/${number}.mp3`);
+//   audio.play();
+// }
+
+// document.querySelectorAll(".units .numbers .number").forEach(number => {
+//   number.addEventListener("click", function() {
+//     playNumberSound(parseInt(this.innerHTML));
+//   });
+// });
+

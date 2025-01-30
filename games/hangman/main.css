@@ -6,7 +6,7 @@ body {
 }
 .container {
   margin: 20px auto;
-  width: 1000px;
+  /* width: 1000px; */
 }
 .row {
   display: flex;
@@ -34,6 +34,8 @@ hr {
   background-color: #f8f8f8;
   padding: 20px;
   height: 324px;
+  width: 500px;
+  height: 320px;
 }
 .hangman-draw .the-draw {
   width: 60px;
@@ -172,6 +174,8 @@ hr {
   flex: 1;
   padding: 20px;
   text-align: center;
+  width: 500px;
+  /* height: 365px; */
 }
 .letters.finished {
   pointer-events: none;
@@ -247,4 +251,67 @@ hr {
 }
 .red {
   background-color: #a82a2a;
+}
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+  .hangman-draw,
+  .letters {
+    width: 100%;
+  }
+  .letters .letter-box {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    line-height: 45px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+  }
+  .hangman-draw {
+    flex: none;
+    height: 200px;
+    padding: 10px;
+  }
+  .the-draw {
+    height: 180px !important;
+  }
+  .hangman-draw .the-hang::after {
+    height: 15px;
+  }
+  .hangman-draw .the-rope {
+    width: 50px;
+    height: 50px;
+    top: 30px;
+    left: 105px;
+  }
+  .hangman-draw .the-man .head {
+    width: 35px;
+    height: 35px;
+    left: 112.5px;
+    top: 37.5px;
+  }
+  .hangman-draw .the-man .body {
+    top: 69px;
+    height: 80px;
+  }
+  .hangman-draw .the-man .hands::before,
+  .hangman-draw .the-man .hands::after {
+    top: 90px;
+    width: 35px;
+  }
+  .hangman-draw .the-man .hands::before {
+    left: 99px;
+  }
+  .hangman-draw .the-man .legs::before,
+  .hangman-draw .the-man .legs::after {
+    top: 155px;
+    width: 35px;
+  }
+  .hangman-draw .the-man .legs::before {
+    left: 99px;
+  }
+  .popup {
+    font-size: 30px;
+  }
 }
