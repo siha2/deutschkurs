@@ -11,17 +11,12 @@
   --light-gold: #ffe452;
   --red-color: #d50000;
   --dark-red: #850000; */
-  --a-green: #3a4643;
-  --b-green: #4c7d73;
-  --c-green: #60d9c3;
-  --d-green: #b1ece0;
-  --e-green: #ecfaf6;
   --dark-green: #a0c814;
   --light-green: #9cdf163d;
-  --white-color: #fff;
   --dark-grey: #ddd;
-  --black-color: #000000;
   --light-grey: #eee;
+  --black-color: #000000;
+  --white-color: #fff;
 }
 html {
   scroll-behavior: smooth;
@@ -152,26 +147,19 @@ header ul {
   justify-content: center;
 }
 header ul li {
-  /* margin: 0 1rem; */
   padding: 5px;
   border-radius: 5px;
   margin: 0 5px;
   transition: all 0.3s ease;
 }
 header ul li a {
-  /* color: var(--gold-color); */
   text-decoration: none;
   transition: all 0.3s ease; 
-  /* font-weight: 600; */
   display: block;
 }
 header ul li:hover {
-  /* background-color: var(--white-color); */
   background-color: var(--light-green);
 }
-/* header ul li:hover a {
-  color: var(--dark-green);
-} */
 @media (max-width: 768px) {
   header .burger {
       display: block;
@@ -192,17 +180,41 @@ header ul li:hover {
     width: 100%;
     padding: 7px 0;
     z-index: 999;
-  }
 
+    /* display: flex;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: var(--light-grey);
+    width: 100%;
+    padding: 50px 0;
+    z-index: 999;
+    width: 300px;
+    height: 100vh;
+    justify-content: flex-start; */
+  }
   header ul li {
-      /* margin: 1rem 0; */
       width: 90%;
       text-align: center;
       padding: 7px;
   }
-
 }
 /* ending header */
+/* @media (max-width: 768px) {
+  .overlay {
+    display: none;
+  }
+  .overlay.popup {
+    display: block;
+    position: fixed;
+    background-color: rgb(0, 0, 0, .7);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 990;
+  }
+} */
 /* start units */
 .units {
   padding-top: 60px;
@@ -385,6 +397,41 @@ header ul li:hover {
   /* background-color: var(--light-grey); */
   background-color: var(--light-green);
   color: var(--gold-color);
+}
+.tables .toggle-header {
+  background-color: var(--light-grey);
+}
+.tables .toggle-content {
+  background-color: var(--white-color);
+  overflow: auto;
+}
+.tables table {
+  width: 100%;
+  border-spacing: 3px;
+}
+.tables table th {
+  background-color: var(--light-green);
+  text-align: center;
+  padding: 5px;
+}
+.tables table td {
+  background-color: var(--light-grey);
+  text-align: center;
+  padding: 5px;
+}
+.tables .plural td {
+  text-align: left;
+}
+.tables .plural td p {
+  display: flex;
+}
+.tables table.plural td p .arti {
+  margin-right: 10px;
+  color: var(--dark-green);
+  width: 10px;
+}
+.tables .plural td span .sp {
+  color: red;
 }
 /* end tables */
 /* start games */

@@ -1,0 +1,89 @@
+{
+  "the": {
+    "das": ["handtuch","würstchen","würstel","butterbrot","auto","buch","geld","glas","medikament","restaurant","taxi","krankenhaus","haus","wort","seminar","verb","zimmer","wochenende","kino","museum","theater","schwimmbad","café","konzerthaus","konzert","rathaus","meer","schiff","gleis","land"],
+    "der": ["koffer","kindergarten","kranke","stift","computer","schlüssel","kilometer","tag","wochentag","beruf","tisch","text","kurs","würfel","hafen","bahnhof","turm","fluss","zug","see"],
+    "die": ["flasche","autobahn","nudeln","straße","rechnung","spritze","tablette","stunde","universität","frage","antwort","tabelle","seite","zahl","information","zeit","woche","person","schule","arbeit","aufgabe","angabe","kirche","stadt","see"]
+  },
+  "plural": {
+    "s": [
+      [["s","auto"],["e","autos"]],
+      [["s","restaurant"],["e","restaurants"]],
+      [["s","taxi"],["e","taxis"]],
+      [["s","kino"],["e","kinos"]],
+      [["s","café"],["e","cafés"]]
+    ],
+    "-": [
+      [["r","computer"],["e","computer"]],
+      [["r","taxifahrer"],["e","taxifahrer"]],
+      [["r","kellner"],["e","kellner"]],
+      [["r","schlüssel"],["e","schlüssel"]],
+      [["r","kilometer"],["e","kilometer"]],
+      [["s","zimmer"],["e","zimmer"]],
+      [["s","theater"],["e","theater"]],
+      [["r","hafen"],["e","häfen"]]
+    ],
+    "er": [
+      [["s","buch"],["e","bücher"]],
+      [["s","krankenhaus"],["e","krankenhäuser"]],
+      [["s","haus"],["e","häuser"]],
+      [["s","wort"],["e","wörter"]],
+      [["s","schwimmbad"],["e","schwimmbäder"]],
+      [["s","konzerthaus"],["e","konzerthäuser"]],
+      [["s","rathaus"],["e","rathäuser"]],
+      [["s","land"],["e","länder"]]
+    ],
+    "e": [
+      [["r","Arzt"],["e","Ärzte"]],
+      [["r","stift"],["e","stifte"]],
+      [["r","tag"],["e","tage"]],
+      [["r","wochentag"],["e","wochentage"]],
+      [["r","beruf"],["e","berufe"]],
+      [["r","text"],["e","texte"]],
+      [["r","kurs"],["e","kurse"]],
+      [["s","jahr"],["e","jahre"]],
+      [["s","seminar"],["e","seminare"]],
+      [["r","freund"],["e","freunde"]],
+      [["r","bahnhof"],["e","bahnhöfe"]],
+      [["r","turm"],["e","türme"]],
+      [["s","meer"],["e","meere"]],
+      [["r","fluss"],["e","flüsse"]],
+      [["s","schiff"],["e","schiffe"]],
+      [["s","gleis"],["e","gleise"]],
+      [["s","konzert"],["e","konzerte"]],
+      [["r","zug"],["e","züge"]],
+      [["e","stadt"],["e","städte"]]
+    ],
+    "en": [
+      [["e","straße"],["e","straßen"]],
+      [["e","rechnung"],["e","rechnungen"]],
+      [["e","universität"],["e","universitäten"]],
+      [["e","studentin"],["e","studentinnen"]],
+      [["r","student"],["e","studenten"]],
+      [["e","Ärztin"],["e","Ärztinnen"]],
+      [["e","stunde"],["e","stunden"]],
+      [["e","woche"],["e","wochen"]],
+      [["e","frage"],["e","fragen"]],
+      [["e","antwort"],["e","antworten"]],
+      [["e","seite"],["e","seiten"]],
+      [["e","zahl"],["e","zahlen"]],
+      [["e","information"],["e","informationen"]],
+      [["e","flasche"],["e","flaschen"]],
+      [["e","zeit"],["e","zeiten"]],
+      [["s","verb"],["e","verben"]],
+      [["e","freundin"],["e","freundinnen"]],
+      [["e","person"],["e","personen"]],
+      [["s","wochenende"],["e","wochenenden"]],
+      [["e","tablette"],["e","tabletten"]],
+      [["e","tabelle"],["e","tabellen"]],
+      [["e","köchin"],["e","köchinnen"]],
+      [["e","schule"],["e","schulen"]],
+      [["e","arbeit"],["e","arbeiten"]],
+      [["s","stadion"],["e","stadien"]],
+      [["s","museum"],["e","museen"]],
+      [["e","aufgabe"],["e","aufgaben"]],
+      [["e","angabe"],["e","angaben"]],
+      [["e","kirche"],["e","kirchen"]],
+      [["r","see"],["e","seen"]]
+    ]
+  }
+}
