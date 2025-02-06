@@ -7,7 +7,31 @@ function toggleMenu() {
   burger.classList.toggle('open');
   // overlay.classList.toggle('popup');
 }
+// ================================================
 
+function toggleSettings() {
+  var settings = document.querySelector('.settings');
+  settings.classList.toggle('show');
+}
+
+const colorsoptions = document.querySelectorAll(".colors-list span");
+colorsoptions.forEach(op => {
+  op.addEventListener("click", (e) => {
+
+    // set color on root
+    document.documentElement.style.setProperty("--dark-main", e.target.dataset.dark);
+    document.documentElement.style.setProperty("--light-main", e.target.dataset.light);
+    handleActive(e);
+  });
+});
+
+function handleActive(ev) {
+  ev.target.parentElement.querySelectorAll(".active").forEach(element => {
+    element.classList.remove("active");
+  });
+  ev.target.classList.add("active");
+}
+// ================================================
 function toggleContent(element) {
   var content = element.nextElementSibling;
   var triangle = element.querySelector('.triangle');
@@ -21,7 +45,7 @@ document.querySelectorAll('.toggle-header, .nested-toggle-header').forEach(heade
     toggleContent(this);
   });
 });
-
+// ================================================
 // start sounds
 // function playNumberSound(number) {
 //   const audio = new Audio(`sounds/numbers/${number}.mp3`);
@@ -33,7 +57,7 @@ document.querySelectorAll('.toggle-header, .nested-toggle-header').forEach(heade
 //   });
 // });
 // end sounds
-
+// ================================================
 // dynamically generate table content from data.json
 document.addEventListener('DOMContentLoaded', () => {
   fetch('data.json')
@@ -91,4 +115,3 @@ function highlightDiff(singular, plural) {
   return result;
   
 }
-

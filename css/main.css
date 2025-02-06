@@ -11,8 +11,8 @@
   --light-gold: #ffe452;
   --red-color: #d50000;
   --dark-red: #850000; */
-  --dark-green: #a0c814;
-  --light-green: #9cdf163d;
+  --dark-main: #a0c814;
+  --light-main: #9cdf163d;
   --dark-grey: #ddd;
   --light-grey: #eee;
   --black-color: #000000;
@@ -66,7 +66,7 @@ h2.heading {
   font-size: 40px;
   margin-bottom: 30px;
   position: relative;
-  color: var(--dark-green);
+  color: var(--dark-main);
 }
 h2.heading::before {
   content: "";
@@ -78,7 +78,7 @@ h2.heading::before {
   bottom: -3px;
   border-radius: 10px;
   transition: 0.5s;
-  background-color: var(--dark-green);
+  background-color: var(--dark-main);
 }
 /* h2.heading.g::before {
   background: var(--gold-color);
@@ -110,10 +110,14 @@ header .container {
 header a.lo {
   display: flex;
 }
-header a img {
-  width: 70px;
-  /* height: 70px; */
+header a.lo h1 {
+  color: var(--dark-main);
+  height: 38px;
+  line-height: 38px;
 }
+/* header a img {
+  width: 70px;
+} */
 header .burger {
   display: none;
   cursor: pointer;
@@ -121,7 +125,7 @@ header .burger {
 header .burger .line {
   width: 25px;
   height: 3px;
-  background-color: var(--dark-green);
+  background-color: var(--dark-main);
   margin: 5px;
   transition: all 0.3s ease;
 }
@@ -145,6 +149,7 @@ header ul {
   padding: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 header ul li {
   padding: 5px;
@@ -158,7 +163,50 @@ header ul li a {
   display: block;
 }
 header ul li:hover {
-  background-color: var(--light-green);
+  background-color: var(--light-main);
+}
+header .gear {
+  position: relative;
+  text-align: center;
+}
+header .gear .settings {
+  display: none;
+  position: absolute;
+  background-color: var(--white-color);
+  padding: 10px;
+  margin: 10px;
+  right: 0px;
+  text-align: center;
+  width: 140px;
+  border-radius: 5px;
+  border: 2px solid #eee;
+  box-shadow: 0px 0px 3px 0px rgb(0 0 0 / 42%);
+}
+header .gear .settings.show {
+  display: block;
+}
+header .settings .colors-list span {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  border: 3px solid var(--white-color);
+}
+header .settings .colors-list span.active {
+  border-color: var(--dark-grey);
+}
+header .settings .colors-list span:nth-child(1) {
+  background-color: #a0c814;
+}
+header .settings .colors-list span:nth-child(2) {
+  background-color: #e91e63;
+}
+header .settings .colors-list span:nth-child(3) {
+  background-color: #03a9f4;
+}
+header .settings .colors-list span:nth-child(4) {
+  background-color: #ff9800;
 }
 @media (max-width: 768px) {
   header .burger {
@@ -168,7 +216,6 @@ header ul li:hover {
   header ul {
       display: none;
       flex-direction: column;
-      align-items: center;
   }
 
   header ul.active {
@@ -197,6 +244,9 @@ header ul li:hover {
       width: 90%;
       text-align: center;
       padding: 7px;
+  }
+  header .gear .settings {
+    position: relative;
   }
 }
 /* ending header */
@@ -230,26 +280,26 @@ header ul li:hover {
   margin-bottom: 10px;
   /* border-radius: 6px;
   overflow: hidden; */
-  border: 2px solid var(--dark-green);
+  border: 2px solid var(--dark-main);
 }
 .toggle {
-  border: 2px solid var(--dark-green);
+  border: 2px solid var(--dark-main);
 }
 .toggle-header, .nested-toggle-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: var(--light-green);
+  background-color: var(--light-main);
   cursor: pointer;
 }
 .toggle-header {
-  /* background-color: var(--light-green); */
-  color: var(--dark-green);
+  /* background-color: var(--light-main); */
+  color: var(--dark-main);
   font-weight: bold;
 }
 .toggle .unit-name {
-  color: var(--dark-green);
+  color: var(--dark-main);
   font-weight: bold;
   margin-bottom: 5px;
 }
@@ -319,7 +369,7 @@ header ul li:hover {
   padding: 8px;
   /* box-shadow: 0px 0px 3px 0px rgb(0 0 0 / 42%); */
   box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
-  background: var(--light-green);
+  background: var(--light-main);
 }
 .units .parent-f .emoji {
   width: 80px;
@@ -357,7 +407,7 @@ header ul li:hover {
 }
 .units .numbers .number {
   padding: 10px;
-  background-color: var(--light-green);
+  background-color: var(--light-main);
   color: var(--black-color);
   border-radius: 10px;
   box-shadow: 0px 0px 3px 0px #0000006b;
@@ -371,7 +421,7 @@ header ul li:hover {
   border-spacing: 3px;
 }
 .units table th {
-  background-color: var(--light-green);
+  background-color: var(--light-main);
   text-align: center;
   padding: 5px;
 }
@@ -395,7 +445,7 @@ header ul li:hover {
   padding-top: 60px;
   padding-bottom: 60px;
   /* background-color: var(--light-grey); */
-  background-color: var(--light-green);
+  background-color: var(--light-main);
   color: var(--gold-color);
 }
 .tables .toggle-header {
@@ -410,7 +460,7 @@ header ul li:hover {
   border-spacing: 3px;
 }
 .tables table th {
-  background-color: var(--light-green);
+  background-color: var(--light-main);
   text-align: center;
   padding: 5px;
 }
@@ -427,7 +477,7 @@ header ul li:hover {
 }
 .tables table.plural td p .arti {
   margin-right: 10px;
-  color: var(--dark-green);
+  color: var(--dark-main);
   width: 10px;
 }
 .tables .plural td span .sp {
@@ -447,7 +497,7 @@ header ul li:hover {
   gap: 40px;
 }
 .games .games-net .game {
-  border: 3px solid var(--dark-green);
+  border: 3px solid var(--dark-main);
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -459,10 +509,10 @@ header ul li:hover {
 }
 .games .games-net .game p {
   position: absolute;
-  color: var(--dark-green);
+  color: var(--dark-main);
   left: 0;
   bottom: 0;
-  background-color: var(--light-green);
+  background-color: var(--light-main);
   padding: 5px;
   border-radius: 5px;
 }
@@ -470,8 +520,8 @@ header ul li:hover {
 /* starting footer */
 footer {
   /* background-color: var(--light-grey); */
-  background-color: var(--light-green);
-  color: var(--dark-green);
+  background-color: var(--light-main);
+  color: var(--dark-main);
   text-align: center;
   padding: 1rem;
   /* position: fixed; */
@@ -501,7 +551,7 @@ footer img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 3px solid var(--dark-green);
+  border: 3px solid var(--dark-main);
   background-color: white;
 }
 /* ending footer */
