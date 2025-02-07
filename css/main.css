@@ -80,15 +80,6 @@ h2.heading::before {
   transition: 0.5s;
   background-color: var(--dark-main);
 }
-/* h2.heading.g::before {
-  background: var(--gold-color);
-}
-h2.heading.b::before {
-  background: var(--black-color);
-}
-h2.heading.r::before {
-  background: var(--red-color);
-} */
 h2.heading:hover::before {
   width: 100%;
 }
@@ -169,6 +160,23 @@ header .gear {
   position: relative;
   text-align: center;
 }
+header .gear img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-top: 9px;
+}
+header .gear img.spin {
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 header .gear .settings {
   display: none;
   position: absolute;
@@ -227,18 +235,6 @@ header .settings .colors-list span:nth-child(4) {
     width: 100%;
     padding: 7px 0;
     z-index: 999;
-
-    /* display: flex;
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: var(--light-grey);
-    width: 100%;
-    padding: 50px 0;
-    z-index: 999;
-    width: 300px;
-    height: 100vh;
-    justify-content: flex-start; */
   }
   header ul li {
       width: 90%;
@@ -250,21 +246,6 @@ header .settings .colors-list span:nth-child(4) {
   }
 }
 /* ending header */
-/* @media (max-width: 768px) {
-  .overlay {
-    display: none;
-  }
-  .overlay.popup {
-    display: block;
-    position: fixed;
-    background-color: rgb(0, 0, 0, .7);
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 990;
-  }
-} */
 /* start units */
 .units {
   padding-top: 60px;
@@ -318,6 +299,33 @@ header .settings .colors-list span:nth-child(4) {
 
 .triangle.rotate {
   transform: rotate(90deg);
+}
+.units .words {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+.units .words .word {
+  box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
+.units .words .word img {
+  width: 100%;
+  height: 150px;
+}
+.units .words .word p span {
+  margin-right: 8px;
+}
+.units .words .word p span.das {
+  color: #006a00;
+}
+.units .words .word p span.die {
+  color: #ce0000;
+}
+.units .words .word p span.der {
+  color: #0068e4;
 }
 .units .tab .title {
   text-align: center;

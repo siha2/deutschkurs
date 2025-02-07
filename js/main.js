@@ -2,13 +2,11 @@
 function toggleMenu() {
   var navLinks = document.getElementById('nav-links');
   var burger = document.querySelector('.burger');
-  // var overlay = document.querySelector('.overlay');
   navLinks.classList.toggle('active');
   burger.classList.toggle('open');
-  // overlay.classList.toggle('popup');
 }
 // ================================================
-
+// color settings
 
 let mainColors = JSON.parse(localStorage.getItem("color_option"));
 if (mainColors !== null) {
@@ -26,7 +24,9 @@ if (mainColors !== null) {
 
 function toggleSettings() {
   var settings = document.querySelector('.settings');
+  var gearicon = document.querySelector('.gear > img');
   settings.classList.toggle('show');
+  gearicon.classList.toggle('spin');
 }
 
 const colorsoptions = document.querySelectorAll(".colors-list span");
@@ -65,15 +65,15 @@ document.querySelectorAll('.toggle-header, .nested-toggle-header').forEach(heade
 });
 // ================================================
 // start sounds
-// function playNumberSound(number) {
-//   const audio = new Audio(`sounds/numbers/${number}.mp3`);
-//   audio.play();
-// }
-// document.querySelectorAll(".units .numbers .number").forEach(number => {
-//   number.addEventListener("click", function() {
-//     playNumberSound(parseInt(this.innerHTML));
-//   });
-// });
+function playNumberSound(number) {
+  const audio = new Audio(`sounds/numbers/${number}.mp3`);
+  audio.play();
+}
+document.querySelectorAll(".units .numbers .number").forEach(number => {
+  number.addEventListener("click", function() {
+    playNumberSound(parseInt(this.innerHTML));
+  });
+});
 // end sounds
 // ================================================
 // dynamically generate table content from data.json
