@@ -133,3 +133,23 @@ function highlightDiff(singular, plural) {
   return result;
   
 }
+// ================================================
+
+lastUpdateElement = document.querySelector('.updateDate .latestupdate');
+
+async function fetchLatestUpdateDate() {
+  const response = await fetch('https://api.github.com/repos/siha2/deutschkurs/commits');
+  const data = await response.json();
+  const latestCommit = data[0];
+  const latestUpdateDate = new Date(latestCommit.commit.committer.date);
+  const formattedDate = latestUpdateDate.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric'
+  });
+  lastUpdateElement.textContent = formattedDate;
+}
+fetchLatestUpdateDate();

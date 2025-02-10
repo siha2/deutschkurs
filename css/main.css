@@ -185,10 +185,19 @@ header .gear .settings {
   margin: 10px;
   right: 0px;
   text-align: center;
-  width: 140px;
+  /* width: 140px; */
+  width: 250px;
   border-radius: 5px;
   border: 2px solid #eee;
   box-shadow: 0px 0px 3px 0px rgb(0 0 0 / 42%);
+}
+header .gear .settings > div {
+  /* box-shadow: 0 2px 15px rgb(0 0 0 / 10%); */
+  border-radius: 5px;
+  border: 2px solid #eee;
+}
+header .gear .settings > div:not(:last-child) {
+  margin-bottom: 10px;
 }
 header .gear .settings.show {
   display: block;
@@ -220,26 +229,29 @@ header .settings .colors-list span:nth-child(4) {
   header .burger {
       display: block;
   }
-
   header ul {
-      display: none;
-      flex-direction: column;
-  }
-
-  header ul.active {
     display: flex;
+    flex-direction: column;
+    right: -300px;
+    transition: right 0.5s ease;
     position: absolute;
     top: 70px;
-    left: 0;
     background: var(--light-grey);
-    width: 100%;
+    /* width: 100%; */
     padding: 7px 0;
     z-index: 999;
+    height: 100vh;
+    width: 280px;
+    justify-content: flex-start;
+    box-shadow: -10px 0 15px -5px rgba(0, 0, 0, 0.3);
+  }
+  header ul.active {
+    right: 0;
   }
   header ul li {
-      width: 90%;
-      text-align: center;
-      padding: 7px;
+    width: 90%;
+    text-align: center;
+    padding: 7px;
   }
   header .gear .settings {
     position: relative;
@@ -303,7 +315,7 @@ header .settings .colors-list span:nth-child(4) {
 .units .words {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
+  gap: 5px;
 }
 .units .words .word {
   box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
@@ -386,10 +398,12 @@ header .settings .colors-list span:nth-child(4) {
 @media (min-width: 768px) {
   .units .feelings {
     display: flex;
+    flex-wrap: wrap;
   }
   .units .feelings .parent-f {
     flex-direction: column;
-    width: 100%;
+    /* width: 100%; */
+    /* width: calc(50% - 10px); */
     text-align: center;
   }
 }
