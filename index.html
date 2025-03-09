@@ -7,6 +7,7 @@
     <title>Deutschkurs</title>
     <link rel="icon" href="photos/logo.png">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/icons.css">
 </head>
 <body>
     <header>
@@ -18,14 +19,13 @@
             <div class="line"></div>
         </div>
         <ul id="nav-links">
-            <li><a href="#units">Kapitel</a></li>
             <li><a href="#tables">Tabellen</a></li>
             <li><a href="#games">Spiele</a></li>
             <div class="gear">
-              <img src="photos/gear.svg" alt="settings" onclick="toggleSettings()">
+              <i class="icon-gear" onclick="toggleSettings()"></i>
               <div class="settings">
                 <div class="colors">
-                  <h3>colors</h3>
+                  <h3>Farben</h3>
                   <div class="colors-list">
                     <span data-dark="#a0c814" data-light="#9cdf163d" class="active"></span>
                     <span data-dark="#e91e63" data-light="#e91e633d"></span>
@@ -34,7 +34,7 @@
                   </div>
                 </div>
                 <div class="updateDate">
-                  <h3>Last update</h3>
+                  <h3>Letzte Aktualisierung</h3>
                   <p class="latestupdate"></p>
                 </div>
               </div>
@@ -43,422 +43,50 @@
       </div>
     </header>
     <main>
-      <div class="units" id="units">
+      <!-- starting landing -->
+      <div class="landing" id="landing">
+        <img src="photos/landing.jpg" alt="landing">
         <div class="container">
-          <h2 class="heading">Kapitel</h2>
-          <div class="units-content">
-            <div class="toggle">
-              <div class="toggle-header">
-                <span>Kapitel 1</span>
-                <span class="triangle">&#9654;</span>
-              </div>
-              <div class="toggle-content">
-                <p class="unit-name">Guten Tag!</p>
-                <div class="nested-toggle">
-                  <div class="nested-toggle-header">
-                    <span>Wortschatz</span>
-                    <span class="triangle">&#9654;</span>
-                  </div>
-                  <div class="nested-toggle-content">
-                    <div class="words">
-                      <div class="word">
-                        <img src="photos/words1/handtuch.jpg" alt="word">
-                        <p><span class="das">das</span>Handtuch</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words1/flasche.png" alt="word">
-                        <p><span class="die">die</span>Flasche</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words1/koffer.jpg" alt="word">
-                        <p><span class="der">der</span>Koffer</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words1/wurstel.jpg" alt="word">
-                        <p><span class="das">das</span>Würstchen</p>
-                        <p><span class="das">das</span>Würstel</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words1/kindergarten.jpg" alt="word">
-                        <p><span class="der">der</span>Kindergarten</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words1/butterbrot.jpg" alt="word">
-                        <p><span class="das">das</span>Butterbrot</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words1/kranke.jpg" alt="word">
-                        <p><span class="der">der</span>Kranke</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words1/autobahn.jpg" alt="word">
-                        <p><span class="die">die</span>Autobahn</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words1/nudeln.jpg" alt="word">
-                        <p><span class="die">die</span>Nudeln</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="nested-toggle">
-                  <div class="nested-toggle-header">
-                    <span>grüßen und verabschieden</span>
-                    <span class="triangle">&#9654;</span>
-                  </div>
-                  <div class="nested-toggle-content">
-                    <p>Guten Morgen!</p>
-                    <p>Guten Tag!</p>
-                    <p>Guten Abend!</p>
-                    <p>Gute Nacht!</p>
-                    <p>Auf Wiedersehen!</p>
-                    <p>Tschüs!</p>
-                    <p>Ciao!</p>
-                    <p>Bis bald!</p>
-                  </div>
-                </div>
-                <div class="nested-toggle">
-                  <div class="nested-toggle-header">
-                    <span>über sich und andere sprechen</span>
-                    <span class="triangle">&#9654;</span>
-                  </div>
-                  <div class="nested-toggle-content">
-                    <div class="tab">
-                      <div class="title">Formell</div>
-                      <div class="quest special">
-                        <p>Frage</p>
-                        <p>Antwort</p>
-                      </div>
-                      <div class="quest">
-                        <p>Wie heißen Sie?</p>
-                        <p>Ich heiße ...(Vorname Nachname).</p>
-                      </div>
-                      <div class="quest">
-                        <p>Wie ist Ihr Name?</p>
-                        <p>Mein Name ist ...(Vorname Nachname).</p>
-                      </div>
-                      <div class="quest">
-                        <p>Wer sind Sie?</p>
-                        <p>Ich bin ...(Vorname Nachname).</p>
-                      </div>
-                      <div class="quest">
-                        <p>Woher kommen Sie?</p>
-                        <p>Ich komme aus ...(Ägypten aus Kairo).</p>
-                      </div>
-                      <div class="quest">
-                        <p>Wo wohnen Sie?</p>
-                        <p>Ich wohne in ...(Deutschland in Berlin).</p>
-                      </div>
-                      <div class="quest">
-                        <p>Welche Sprachen sprechen Sie?</p>
-                        <p>Ich spreche ...(Arabisch, Englisch und etwas Deutsch).</p>
-                      </div>
-                      <div class="quest">
-                        <p>Was arbeiten Sie?</p>
-                        <p>Ich bin ...(Student).</p>
-                      </div>
-                    </div>
-                    <div class="tab">
-                      <div class="title">Informell</div>
-                      <div class="quest special">
-                        <p>Frage</p>
-                        <p>Antwort</p>
-                      </div>
-                      <div class="quest">
-                        <p>Wie heißt du?</p>
-                        <p>Ich heiße ...(Vorname).</p>
-                      </div>
-                      <div class="quest">
-                        <p>Wie ist dein Name?</p>
-                        <p>Mein Name ist ...(Vorname).</p>
-                      </div>
-                      <div class="quest">
-                        <p>Wer bist du?</p>
-                        <p>Ich bin ...(Vorname).</p>
-                      </div>
-                      <div class="quest">
-                        <p>Woher kommst du?</p>
-                        <p>Ich komme aus ...(Ägypten aus Kairo).</p>
-                      </div>
-                      <div class="quest">
-                        <p>Wo wohnst du?</p>
-                        <p>Ich wohne in ...(Deutschland in Berlin).</p>
-                      </div>
-                      <div class="quest">
-                        <p>Welche Sprachen sprichst du?</p>
-                        <p>Ich spreche ...(Arabisch, Englisch und etwas Deutsch).</p>
-                      </div>
-                      <div class="quest">
-                        <p>Was arbeitest du?</p>
-                        <p>Ich bin ...(Student).</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="nested-toggle">
-                  <div class="nested-toggle-header">
-                    <span>Befinden</span>
-                    <span class="triangle">&#9654;</span>
-                  </div>
-                  <div class="nested-toggle-content">
-                    <p>Wie geht es Ihnen? (Formell)</p>
-                    <p>Wie geht's dir? (Informell)</p>
-                    <p>Wie geht's? (Informell)</p>
-                    <div class="feelings">
-                      <div class="parent-f">
-                        <div class="emoji">&#128512;&#128512;</div>
-                        <div class="words">
-                          <p>Sehr gut</p>
-                          <p>Prima</p>
-                          <p>Super</p>
-                          <p>Toll</p>
-                        </div>
-                      </div>
-                      <div class="parent-f">
-                        <div class="emoji">&#128512;</div>
-                        <div class="words">
-                          <p>Gut</p>
-                        </div>
-                      </div>
-                      <div class="parent-f">
-                        <div class="emoji">&#128528;</div>
-                        <div class="words">
-                          <p>Es geht</p>
-                          <p>Ganz gut</p>
-                        </div>
-                      </div>
-                      <div class="parent-f">
-                        <div class="emoji">&#128543;</div>
-                        <div class="words">
-                          <p>Nicht so gut</p>
-                          <p>Schlecht</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="nested-toggle">
-                  <div class="nested-toggle-header">
-                    <span>Zahlen</span>
-                    <span class="triangle">&#9654;</span>
-                  </div>
-                  <div class="nested-toggle-content">
-                    <div class="numbers">
-                      <div class="number">0 null</div>
-                      <div class="number">1 eins</div>
-                      <div class="number">2 zwei</div>
-                      <div class="number">3 drei</div>
-                      <div class="number">4 vier</div>
-                      <div class="number">5 fünf</div>
-                      <div class="number">6 sechs</div>
-                      <div class="number">7 sieben</div>
-                      <div class="number">8 acht</div>
-                      <div class="number">9 neun</div>
-                      <div class="number">10 zehn</div>
-                      <div class="number">11 elf</div>
-                      <div class="number">12 zwölf</div>
-                      <div class="number">13 dreizehn</div>
-                      <div class="number">14 vierzehn</div>
-                      <div class="number">15 fünfzehn</div>
-                      <div class="number">16 sechzehn</div>
-                      <div class="number">17 siebzehn</div>
-                      <div class="number">18 achtzehn</div>
-                      <div class="number">19 neunzehn</div>
-                      <div class="number">20 zwanzig</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="nested-toggle">
-                  <div class="nested-toggle-header">
-                    <span>Telefonnummer , E-Mail-Adresse und buchstabieren</span>
-                    <span class="triangle">&#9654;</span>
-                  </div>
-                  <div class="nested-toggle-content">
-                    <div class="quest special">
-                      <p>Frage</p>
-                      <p>Antwort</p>
-                    </div>
-                    <div class="quest">
-                      <p>Wie bitte! Buchstabieren Sie Ihren Namen?</p>
-                      <p>S I H A</p>
-                    </div>
-                    <div class="quest">
-                      <p>Wie ist Ihre Telefonnummer?</p>
-                      <p>Meine Telefonnummer ist 0100...</p>
-                    </div>
-                    <div class="quest">
-                      <p>Wie ist Ihre E-Mail-Adresse?</p>
-                      <p>Meine E-Mail-Adresse ist test@test.com</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="nested-toggle">
-                  <div class="nested-toggle-header">
-                    <span>Länder und Sprachen</span>
-                    <span class="triangle">&#9654;</span>
-                  </div>
-                  <div class="nested-toggle-content lang">
-                    <table>
-                      <thead>
-                        <tr>
-                          <th>Flagge</th>
-                          <th>Länder</th>
-                          <th>Sprachen</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td><img src="photos/flags/eg.webp" alt="eg" class="sp-photo"></td>
-                          <td>Ägypten</td>
-                          <td>Arabisch</td>
-                        </tr>
-                        <tr>
-                          <td><img src="photos/flags/germ.png" alt="ge"><br><img src="photos/flags/aust.png" alt="aus"></td>
-                          <td><p>Deutschland</p><p>Österreich</p></td>
-                          <td>Deutsch</td>
-                        </tr>
-                        <tr>
-                          <td><img src="photos/flags/swiz.png" alt="sw"></td>
-                          <td>der Schweiz</td>
-                          <td><p>Deutsch</p><p>Französisch</p><p>Italienisch</p><p>Rätoromanisch</p></td>
-                        </tr>
-                        <tr>
-                          <td><img src="photos/flags/brazil.webp" alt="br"><br><img src="photos/flags/port.webp" alt="port"></td>
-                          <td><p>Brasilien</p><p>Portugal</p></td>
-                          <td>Portugiesisch</td>
-                        </tr>
-                        <tr>
-                          <td><img src="photos/flags/mexi.webp" alt="mex"><br><img src="photos/flags/span.webp" alt="span"></td>
-                          <td><p>Mexiko</p><p>Spanien</p></td>
-                          <td>Spanisch</td>
-                        </tr>
-                        <tr>
-                          <td><img src="photos/flags/franc.png" alt="fr"></td>
-                          <td>Frankreich</td>
-                          <td>Französisch</td>
-                        </tr>
-                        <tr>
-                          <td><img src="photos/flags/gree.png" alt="gr"></td>
-                          <td>Griechenland</td>
-                          <td>Griechisch</td>
-                        </tr>
-                        <tr>
-                          <td><img src="photos/flags/ital.webp" alt="it"></td>
-                          <td>Italien</td>
-                          <td>Italienisch</td>
-                        </tr>
-                        <tr>
-                          <td><img src="photos/flags/ja.png" alt="ja"></td>
-                          <td>Japan</td>
-                          <td>Japanisch</td>
-                        </tr>
-                        <tr>
-                          <td><img src="photos/flags/polen.png" alt="pol"></td>
-                          <td>Polen</td>
-                          <td>Polnisch</td>
-                        </tr>
-                        <tr>
-                          <td><img src="photos/flags/russi.png" alt="rus"></td>
-                          <td>Russland</td>
-                          <td>Russisch</td>
-                        </tr>
-                        <tr>
-                          <td><img src="photos/flags/tu.png" alt="tu"></td>
-                          <td>der Türkei</td>
-                          <td>Türkisch</td>
-                        </tr>
-                        <tr>
-                          <td><img src="photos/flags/ukr.png" alt="uk"></td>
-                          <td>der Ukraine</td>
-                          <td>Ukrainisch</td>
-                        </tr>
-                        <tr>
-                          <td><img src="photos/flags/usa.webp" alt="usa"></td>
-                          <td>den USA</td>
-                          <td>Englisch</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="toggle">
-              <div class="toggle-header">
-                <span>Kapitel 2</span>
-                <span class="triangle">&#9654;</span>
-              </div>
-              <div class="toggle-content">
-                <p class="unit-name">Freunde, Kollegen und ich </p>
-                <div class="nested-toggle">
-                  <div class="nested-toggle-header">
-                    <span>Hobbys</span>
-                    <span class="triangle">&#9654;</span>
-                  </div>
-                  <div class="nested-toggle-content">
-                    <div class="words">
-                      <div class="word">
-                        <img src="photos/words2/fotografiegen.jpg" alt="word">
-                        <p>fotografieren</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words2/singen.webp" alt="word">
-                        <p>singen</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words2/kochen.jpg" alt="word">
-                        <p>kochen</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words2/schwimmen.jpg" alt="word">
-                        <p>schwimmen</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words2/reisen.jpg" alt="word">
-                        <p>reisen</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words2/tanzen.jpg" alt="word">
-                        <p>tanzen</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words2/joggen.jpg" alt="word">
-                        <p>joggen</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words2/horen.jpg" alt="word">
-                        <p>Musik hören</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words2/kino.jpg" alt="word">
-                        <p>ins Kino gehen</p>
-                      </div>
-                      <div class="word">
-                        <img src="photos/words2/lesen.jpg" alt="word">
-                        <p>lesen</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="text">
+            <table>
+              <tr>
+                <td>Heute ist:</td>
+                <td class="today"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="date"></td>
+              </tr>
+              <tr>
+                <td>Es ist:</td>
+                <td class="time"></td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
+      <!-- ending landing -->
+      <!-- starting tables -->
       <div class="tables" id="tables">
         <div class="container">
           <h2 class="heading">Tabellen</h2>
-          <div class="toggle">
+          <div class="toggle first">
             <div class="toggle-header">
               <span>Bestimmter Artikel</span>
               <span class="triangle">&#9654;</span>
             </div>
             <div class="toggle-content">
+              <div class="features">
+                <input type="search" value="" placeholder="Suchen...">
+                <span class="sort">
+                  <i class="icon-sort-amount-asc"></i>
+                </span>
+              </div>
               <table class="the">
                 <thead>
                   <tr>
-                    <th>das</th>
                     <th>der</th>
+                    <th>das</th>
                     <th>die</th>
                   </tr>
                 </thead>
@@ -466,12 +94,22 @@
               </table>
             </div>
           </div>
-          <div class="toggle">
+          <div class="toggle second">
             <div class="toggle-header">
               <span>Singular und Plural</span>
               <span class="triangle">&#9654;</span>
             </div>
             <div class="toggle-content">
+              <div class="features">
+                <input type="search" value="" placeholder="Suchen...">
+                <span class="sort">
+                  <i class="icon-sort-amount-asc"></i>
+                </span>
+                <label class="switch coloring">
+                  <input type="checkbox">
+                  <span class="slider"></span>
+                </label>
+              </div>
               <table class="plural">
                 <thead>
                   <tr>
@@ -486,8 +124,341 @@
               </table>
             </div>
           </div>
+          <div class="toggle third">
+            <div class="toggle-header">
+              <span>Kasus</span>
+              <span class="triangle">&#9654;</span>
+            </div>
+            <div class="toggle-content kasus">
+              <div class="table-container">
+                <table class="nominativ">
+                  <caption>Nominativ</caption>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>m</th>
+                      <th>n</th>
+                      <th>f</th>
+                      <th>pl</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <td>der</td>
+                      <td>das</td>
+                      <td>die</td>
+                      <td>die</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>ein</td>
+                      <td>ein</td>
+                      <td>ein<span class="sp">e</span></td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>kein</td>
+                      <td>kein</td>
+                      <td>kein<span class="sp">e</span></td>
+                      <td>kein<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>ich</td>
+                      <td>mein</td>
+                      <td>mein</td>
+                      <td>mein<span class="sp">e</span></td>
+                      <td>mein<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>du</td>
+                      <td>dein</td>
+                      <td>dein</td>
+                      <td>dein<span class="sp">e</span></td>
+                      <td>dein<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>er</td>
+                      <td>sein</td>
+                      <td>sein</td>
+                      <td>sein<span class="sp">e</span></td>
+                      <td>sein<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>es</td>
+                      <td>sein</td>
+                      <td>sein</td>
+                      <td>sein<span class="sp">e</span></td>
+                      <td>sein<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>sie</td>
+                      <td>ihr</td>
+                      <td>ihr</td>
+                      <td>ihr<span class="sp">e</span></td>
+                      <td>ihr<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>wir</td>
+                      <td>unser</td>
+                      <td>unser</td>
+                      <td>unser<span class="sp">e</span></td>
+                      <td>unser<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>ihr</td>
+                      <td>euer</td>
+                      <td>euer</td>
+                      <td>eu<span class="sp">re</span></td>
+                      <td>eu<span class="sp">re</span></td>
+                    </tr>
+                    <tr>
+                      <td>sie</td>
+                      <td>ihr</td>
+                      <td>ihr</td>
+                      <td>ihr<span class="sp">e</span></td>
+                      <td>ihr<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>Sie</td>
+                      <td>Ihr</td>
+                      <td>Ihr</td>
+                      <td>Ihr<span class="sp">e</span></td>
+                      <td>Ihr<span class="sp">e</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="table-container">
+                <table class="akkusativ">
+                  <caption>Akkusativ</caption>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>m</th>
+                      <th>n</th>
+                      <th>f</th>
+                      <th>pl</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <td>den</td>
+                      <td>das</td>
+                      <td>die</td>
+                      <td>die</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>ein<span class="sp">en</span></td>
+                      <td>ein</td>
+                      <td>ein<span class="sp">e</span></td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>kein<span class="sp">en</span></td>
+                      <td>kein</td>
+                      <td>kein<span class="sp">e</span></td>
+                      <td>kein<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>ich &#8594; mich</td>
+                      <td>mein<span class="sp">en</span></td>
+                      <td>mein</td>
+                      <td>mein<span class="sp">e</span></td>
+                      <td>mein<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>du &#8594; dich</td>
+                      <td>dein<span class="sp">en</span></td>
+                      <td>dein</td>
+                      <td>dein<span class="sp">e</span></td>
+                      <td>dein<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>er &#8594; ihn</td>
+                      <td>sein<span class="sp">en</span></td>
+                      <td>sein</td>
+                      <td>sein<span class="sp">e</span></td>
+                      <td>sein<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>es</td>
+                      <td>sein<span class="sp">en</span></td>
+                      <td>sein</td>
+                      <td>sein<span class="sp">e</span></td>
+                      <td>sein<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>sie</td>
+                      <td>ihr<span class="sp">en</span></td>
+                      <td>ihr</td>
+                      <td>ihr<span class="sp">e</span></td>
+                      <td>ihr<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>wir &#8594; uns</td>
+                      <td>unser<span class="sp">en</span></td>
+                      <td>unser</td>
+                      <td>unser<span class="sp">e</span></td>
+                      <td>unser<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>ihr &#8594; euch</td>
+                      <td>eu<span class="sp">ren</span></td>
+                      <td>euer</td>
+                      <td>eu<span class="sp">re</span></td>
+                      <td>eu<span class="sp">re</span></td>
+                    </tr>
+                    <tr>
+                      <td>sie</td>
+                      <td>ihr<span class="sp">en</span></td>
+                      <td>ihr</td>
+                      <td>ihr<span class="sp">e</span></td>
+                      <td>ihr<span class="sp">e</span></td>
+                    </tr>
+                    <tr>
+                      <td>Sie</td>
+                      <td>Ihr<span class="sp">en</span></td>
+                      <td>Ihr</td>
+                      <td>Ihr<span class="sp">e</span></td>
+                      <td>Ihr<span class="sp">e</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="table-container">
+                <table class="dativ">
+                  <caption>Dativ</caption>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>m</th>
+                      <th>n</th>
+                      <th>f</th>
+                      <th>pl</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <td>dem</td>
+                      <td>dem</td>
+                      <td>der</td>
+                      <td>den</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>ein<span class="sp">em</span></td>
+                      <td>ein<span class="sp">em</span></td>
+                      <td>ein<span class="sp">er</span></td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>kein<span class="sp">em</span></td>
+                      <td>kein<span class="sp">em</span></td>
+                      <td>kein<span class="sp">er</span></td>
+                      <td>kein<span class="sp">en</span></td>
+                    </tr>
+                    <tr>
+                      <td>ich &#8594; mir</td>
+                      <td>mein<span class="sp">em</span></td>
+                      <td>mein<span class="sp">em</span></td>
+                      <td>mein<span class="sp">er</span></td>
+                      <td>mein<span class="sp">en</span></td>
+                    </tr>
+                    <tr>
+                      <td>du &#8594; dir</td>
+                      <td>dein<span class="sp">em</span></td>
+                      <td>dein<span class="sp">em</span></td>
+                      <td>dein<span class="sp">er</span></td>
+                      <td>dein<span class="sp">en</span></td>
+                    </tr>
+                    <tr>
+                      <td>er &#8594; ihm</td>
+                      <td>sein<span class="sp">em</span></td>
+                      <td>sein<span class="sp">em</span></td>
+                      <td>sein<span class="sp">er</span></td>
+                      <td>sein<span class="sp">en</span></td>
+                    </tr>
+                    <tr>
+                      <td>es &#8594; ihm</td>
+                      <td>sein<span class="sp">em</span></td>
+                      <td>sein<span class="sp">em</span></td>
+                      <td>sein<span class="sp">er</span></td>
+                      <td>sein<span class="sp">en</span></td>
+                    </tr>
+                    <tr>
+                      <td>sie &#8594; ihr</td>
+                      <td>ihr<span class="sp">em</span></td>
+                      <td>ihr<span class="sp">em</span></td>
+                      <td>ihr<span class="sp">er</span></td>
+                      <td>ihr<span class="sp">en</span></td>
+                    </tr>
+                    <tr>
+                      <td>wir &#8594; uns</td>
+                      <td>unser<span class="sp">em</span></td>
+                      <td>unser<span class="sp">em</span></td>
+                      <td>unser<span class="sp">er</span></td>
+                      <td>unser<span class="sp">en</span></td>
+                    </tr>
+                    <tr>
+                      <td>ihr &#8594; euch</td>
+                      <td>eu<span class="sp">rem</span></td>
+                      <td>eu<span class="sp">rem</span></td>
+                      <td>eu<span class="sp">rer</span></td>
+                      <td>eu<span class="sp">ren</span></td>
+                    </tr>
+                    <tr>
+                      <td>sie &#8594; ihnen</td>
+                      <td>ihr<span class="sp">em</span></td>
+                      <td>ihr<span class="sp">em</span></td>
+                      <td>ihr<span class="sp">er</span></td>
+                      <td>ihr<span class="sp">en</span></td>
+                    </tr>
+                    <tr>
+                      <td>Sie &#8594; Ihnen</td>
+                      <td>Ihr<span class="sp">em</span></td>
+                      <td>Ihr<span class="sp">em</span></td>
+                      <td>Ihr<span class="sp">er</span></td>
+                      <td>Ihr<span class="sp">en</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="table-container">
+                <table class="genitiv ">
+                  <caption>Genitiv </caption>
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>m</th>
+                      <th>n</th>
+                      <th>f</th>
+                      <th>pl</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      <!-- ending tables -->
+      <!-- starting games -->
       <div class="games" id="games">
         <div class="container">
           <h2 class="heading">Spiele</h2>
@@ -507,6 +478,7 @@
           </div>
         </div>
       </div>
+      <!-- ending games -->
     </main>
     <footer>
       <p>Die Seite wurde von <a href="https://siha2.github.io/portfolio/"><img src="photos/me.png" alt="developer" title="Siha Rateeb"></a> erstellt</p>

@@ -6,11 +6,9 @@
   padding: 0;
 }
 :root {
-  /*
-  --gold-color: #FFD700;
-  --light-gold: #ffe452;
-  --red-color: #d50000;
-  --dark-red: #850000; */
+  --das-color: #2dcc2d;
+  --der-color: #0068e4;
+  --die-color: #ce0000;
   --dark-main: #a0c814;
   --light-main: #9cdf163d;
   --dark-grey: #ddd;
@@ -160,13 +158,14 @@ header .gear {
   position: relative;
   text-align: center;
 }
-header .gear img {
+header .gear i {
   width: 20px;
   height: 20px;
   cursor: pointer;
   margin-top: 9px;
+  display: inline-block;
 }
-header .gear img.spin {
+header .gear i.spin {
   animation: spin 2s linear infinite;
 }
 @keyframes spin {
@@ -258,21 +257,9 @@ header .settings .colors-list span:nth-child(4) {
   }
 }
 /* ending header */
-/* start units */
-.units {
-  padding-top: 60px;
-  padding-bottom: 60px;
-  background-color: var(--white-color);
-  /* color: var(--gold-color); */
-  color: var(--black-color);
-}
-.units {
-  padding-top: 90px; /*because the fixed header*/
-}
+/* start toggle */
 .toggle, .nested-toggle {
   margin-bottom: 10px;
-  /* border-radius: 6px;
-  overflow: hidden; */
   border: 2px solid var(--dark-main);
 }
 .toggle {
@@ -287,188 +274,55 @@ header .settings .colors-list span:nth-child(4) {
   cursor: pointer;
 }
 .toggle-header {
-  /* background-color: var(--light-main); */
   color: var(--dark-main);
   font-weight: bold;
-}
-.toggle .unit-name {
-  color: var(--dark-main);
-  font-weight: bold;
-  margin-bottom: 5px;
 }
 .toggle-content, .nested-toggle-content {
   display: none;
   padding: 10px;
 }
-
 .toggle-content.active, .nested-toggle-content.active {
   display: block;
 }
-
 .triangle {
   transition: transform 0.3s ease;
 }
-
 .triangle.rotate {
   transform: rotate(90deg);
 }
-.units .words {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 5px;
+/* end toggle */
+/* start landing */
+.landing {
+  padding-top: 70px; 
+  line-height: 0;
 }
-.units .words .word {
-  box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
-  text-align: center;
-  padding: 10px;
-  font-weight: bold;
-}
-.units .words .word img {
+.landing img {
   width: 100%;
-  height: 150px;
+  position: relative;
+  opacity: 0.1;
 }
-.units .words .word p span {
-  margin-right: 8px;
-}
-.units .words .word p span.das {
-  color: #006a00;
-}
-.units .words .word p span.die {
-  color: #ce0000;
-}
-.units .words .word p span.der {
-  color: #0068e4;
-}
-.units .tab .title {
-  text-align: center;
-  font-weight: bold;
-}
-.units .quest {
-  display: flex;
-}
-.units .quest.special {
-  text-align: center;
-  font-weight: bold;
-}
-.quest p:nth-child(1) {
-  width: 50%;
-  background-color: var(--dark-grey);
-  margin: 5px;
-  padding: 5px;
-}
-.quest p:nth-child(2) {
-  width: 50%;
-  background-color: var(--light-grey);
-  margin: 5px;
-  padding: 5px;
-}
-@media (max-width: 992px) {
-  .units .quest {
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
-  .units .quest p {
-    width: 100%;
-    margin: 0;
-  }
-  .units .quest.special {
-    display: none;
-  }
-}
-.units .quest.special p:nth-child(1) {
-  background-color: var(--light-grey);
-}
-.units .quest.special p:nth-child(2) {
-  background-color: var(--dark-grey);
-}
-.units .parent-f {
-  display: flex;
-  align-items: center;
-  border: 2px solid;
-  margin: 5px;
-  padding: 8px;
-  /* box-shadow: 0px 0px 3px 0px rgb(0 0 0 / 42%); */
-  box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
-  background: var(--light-main);
-}
-.units .parent-f .emoji {
-  width: 80px;
-  text-align: center;
-}
-@media (min-width: 768px) {
-  .units .feelings {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .units .feelings .parent-f {
-    flex-direction: column;
-    /* width: 100%; */
-    /* width: calc(50% - 10px); */
-    text-align: center;
-  }
-}
-@media (min-width: 450px) and (max-width: 767px) {
-  .units .feelings .parent-f {
-    width: calc(50% - 10px);
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    height: 170px;
-  }
-  .units .feelings {
-    display: flex;
-    flex-wrap: wrap;
+@media (max-width: 300px) {
+  .landing img {
+    height: 200px;
   }
   
 }
-.units .numbers {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 30px;
-  margin: 8px 0;
+.landing .text {
+  position: absolute;
+  top: 120px;
+  line-height: 1.5;
+  color: var(--dark-main);
 }
-.units .numbers .number {
-  padding: 10px;
-  background-color: var(--light-main);
-  color: var(--black-color);
-  border-radius: 10px;
-  box-shadow: 0px 0px 3px 0px #0000006b;
-  text-align: center;
+.landing .text table tr td:first-child {
+  font-weight: bold;
+  width: 100px;
 }
-.units .lang {
-  overflow: auto;
-}
-.units table {
-  width: 100%;
-  border-spacing: 3px;
-}
-.units table th {
-  background-color: var(--light-main);
-  text-align: center;
-  padding: 5px;
-}
-.units table td {
-  background-color: var(--light-grey);
-  text-align: center;
-  padding: 5px;
-}
-.units table td img {
-  width: 23px;
-  height: 15px;
-}
-.units table td img.sp-photo {
-  width: 48px;
-  height: 32px;
-  vertical-align: middle;
-}
-/* end units */
+/* end landing */
 /* start tables */
 .tables {
   padding-top: 60px;
   padding-bottom: 60px;
-  /* background-color: var(--light-grey); */
   background-color: var(--light-main);
-  color: var(--gold-color);
 }
 .tables .toggle-header {
   background-color: var(--light-grey);
@@ -476,6 +330,92 @@ header .settings .colors-list span:nth-child(4) {
 .tables .toggle-content {
   background-color: var(--white-color);
   overflow: auto;
+}
+.tables .features {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 8px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.tables .features input[type="search"] {
+  padding: 8px;
+  border: 2px solid var(--dark-grey);
+  border-radius: 25px;
+  outline: none;
+  width: 200px;
+  transition: border-color 0.1s;
+  font-size: 16px;
+}
+.tables .features input[type="search"]:focus {
+  border-color: var(--dark-main);
+}
+.tables .features .sort {
+  background-color: var(--light-grey);
+  padding: 5px;
+  border-radius: 7px;
+  width: 50px;
+  border: 2px solid;
+  border-color: var(--dark-grey);
+  height: 38px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.tables .features .sort.coloring {
+  border-color: var(--dark-main);
+  background-color: var(--light-main);
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--light-main);
+  transition: .4s;
+  border-radius: 34px;
+}
+.switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--dark-main);
+  transition: .4s;
+  border-radius: 50%;
+}
+.switch input:checked + .slider {
+  background-color: var(--light-grey);
+}
+.switch input:checked + .slider:before {
+  transform: translateX(26px);
+  background-image: linear-gradient(to bottom, 
+    var(--der-color) 25%, 
+    var(--das-color) 25%, 
+    var(--das-color) 50%, 
+    var(--die-color) 50%, 
+    var(--die-color) 75%, 
+    black 75%);
 }
 .tables table {
   width: 100%;
@@ -491,6 +431,11 @@ header .settings .colors-list span:nth-child(4) {
   text-align: center;
   padding: 5px;
 }
+.tables .kasus .table-container tr:nth-child(1) td:not(:first-child),
+.tables .kasus .table-container tr:nth-child(2) td:not(:first-child),
+.tables .kasus .table-container tr:nth-child(3) td:not(:first-child) {
+  background-color: var(--dark-grey);
+}
 .tables .plural td {
   text-align: left;
 }
@@ -502,8 +447,33 @@ header .settings .colors-list span:nth-child(4) {
   color: var(--dark-main);
   width: 10px;
 }
+.tables table.plural td p .arti.r {
+  color: var(--der-color);
+}
+.tables table.plural td p .arti.s {
+  color: var(--das-color);
+}
+.tables table.plural td p:first-child .arti.e {
+  color: var(--die-color);
+}
+.tables table.plural td p:last-child .arti.e {
+  color: black;
+}
 .tables .plural td span .sp {
   color: red;
+}
+.tables .kasus .table-container {
+  overflow: auto;
+}
+.tables .kasus tr td:nth-child(1) {
+  background-color: var(--light-main);
+}
+.tables .kasus td span.sp {
+  color: red;
+}
+.tables .kasus td {
+  white-space: nowrap;
+  min-width: 70px;
 }
 /* end tables */
 /* start games */
