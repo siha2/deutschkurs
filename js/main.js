@@ -66,26 +66,22 @@ document.querySelectorAll('.toggle-header, .nested-toggle-header').forEach(heade
 
 // ================================================
 
-// Global variables to store processed data once
 let theData = { der: [], das: [], die: [] };
 let pluralData = { s: [], _: [], er: [], e: [], n: [] };
 
-// Dynamically generate table content from data.json
 document.addEventListener('DOMContentLoaded', () => {
   fetch('data.json')
     .then(response => response.json())
     .then(data => {
-      processData(data); // Process data into global variables
+      processData(data);
       addingTheTable();
       addingPluralTable();
     })
     .catch(error => console.error('Error fetching data:', error));
 
-  // Process data into global objects once
   function processData(data) {
     data.forEach(el => {
       const [id, groupId, article, singular, pluralMarker, plural] = el;
-      // Populate theData for "der", "das", "die" table
       if (article === "r") {
         theData.der.push(el);
       } else if (article === "s") {
@@ -93,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (article === "e") {
         theData.die.push(el);
       }
-      // Populate pluralData for plural table
       if (pluralMarker === "s") {
         pluralData.s.push(el);
       } else if (pluralMarker === "-") {
@@ -109,41 +104,45 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function addingTheTable() {
-    const tbody = document.querySelector('.tables .the tbody');
-    tbody.innerHTML = ''; // Clear existing content
+    const columns = document.querySelectorAll('.tables .the .column');
+    const bodies = Array.from(columns).map(col => col.querySelector('.body'));
+    bodies.forEach(body => body.innerHTML = ''); // Clear existing content
     const maxLength = Math.max(theData.der.length, theData.das.length, theData.die.length);
 
-    for (let i = 0; i < maxLength; i++) {
-      const row = document.createElement('tr');
-      [theData.der, theData.das, theData.die].forEach(arr => {
-        const cell = document.createElement('td');
+    // Add cells to each column
+    [theData.der, theData.das, theData.die].forEach((arr, colIndex) => {
+      const body = bodies[colIndex];
+      for (let i = 0; i < maxLength; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
         cell.textContent = arr[i] ? arr[i][3] : ''; // Use singular (index 3)
         cell.dataset.id = arr[i] ? arr[i][0] : ''; // Store id for sorting
-        row.appendChild(cell);
-      });
-      tbody.appendChild(row);
-    }
+        body.appendChild(cell);
+      }
+    });
   }
 
   function addingPluralTable() {
-    const tbody = document.querySelector('.tables .plural tbody');
-    tbody.innerHTML = ''; // Clear existing content
+    const columns = document.querySelectorAll('.tables .plural .column');
+    const bodies = Array.from(columns).map(col => col.querySelector('.body'));
+    bodies.forEach(body => body.innerHTML = ''); // Clear existing content
     const maxLength = Math.max(pluralData.s.length, pluralData._.length, pluralData.er.length, pluralData.e.length, pluralData.n.length);
 
-    for (let i = 0; i < maxLength; i++) {
-      const row = document.createElement('tr');
-      [pluralData.s, pluralData._, pluralData.er, pluralData.e, pluralData.n].forEach(arr => {
-        const cell = document.createElement('td');
+    // Add cells to each column
+    [pluralData.s, pluralData._, pluralData.er, pluralData.e, pluralData.n].forEach((arr, colIndex) => {
+      const body = bodies[colIndex];
+      for (let i = 0; i < maxLength; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
         if (arr[i]) {
           cell.innerHTML = `<p><span class="arti">${arr[i][2]}</span><span>${arr[i][3]}</span></p> <p><span class="arti">e</span><span>${highlightDiff(arr[i][3], arr[i][5])}</span></p>`;
           cell.dataset.id = arr[i][0]; // Store id for sorting
         } else {
           cell.textContent = '';
         }
-        row.appendChild(cell);
-      });
-      tbody.appendChild(row);
-    }
+        body.appendChild(cell);
+      }
+    });
   }
 });
 
@@ -172,51 +171,53 @@ let coloring = document.querySelector('.second .features .coloring input[type="c
 // Event listeners
 search1.addEventListener('input', searching);
 sort1.addEventListener('click', sorting);
+
 search2.addEventListener('input', searching);
 sort2.addEventListener('click', sorting);
 coloring.addEventListener('click', coloringArti);
 
 function searching(e) {
   const searchValue = e.target.value.toLowerCase();
-  const tbody = e.target.closest('.toggle-content').querySelector('tbody');
-  const rows = tbody.querySelectorAll('tr');
+  const table = e.target.closest('.toggle-content').querySelector('.table');
+  const bodies = table.querySelectorAll('.body');
 
-  rows.forEach(row => {
-    const cells = row.querySelectorAll('td');
+  bodies.forEach(body => {
+    const cells = body.querySelectorAll('.cell');
     cells.forEach(cell => {
-      const text = cell.textContent.toLowerCase(); // Get text including nested spans
+      // Store original content in data attribute if not already stored
+      if (!cell.dataset.original) {
+        cell.dataset.original = cell.innerHTML;
+      }
+      const text = cell.textContent.toLowerCase();
       if (text.includes(searchValue)) {
-        cell.style.visibility = 'visible'; // Show matching cell (default display)
+        cell.innerHTML = cell.dataset.original; // Restore original content
+        cell.style.display = 'block'; // Show matching cell
       } else {
-        cell.style.visibility = 'hidden'; // Hide non-matching cell and collapse space
+        cell.style.display = 'none'; // Hide and collapse non-matching cell
       }
     });
   });
 }
 
 function sorting() {
-  const sortButton = this; // 'this' refers to the clicked sort button
+  const sortButton = this;
   sortButton.classList.toggle("coloring");
   const sortIcon = sortButton.querySelector('i');
-  const tbody = sortButton.closest('.toggle-content').querySelector('tbody');
-  const rows = tbody.querySelectorAll('tr');
-  const colCount = rows[0].querySelectorAll('td').length;
+  const table = sortButton.closest('.toggle-content').querySelector('.table');
+  const bodies = table.querySelectorAll('.body');
+  const colCount = bodies.length;
 
-  // Convert rows to a 2D array of cell contents by column
-  const columns = Array.from({ length: colCount }, () => []);
-  rows.forEach(row => {
-    const cells = row.querySelectorAll('td');
-    cells.forEach((cell, index) => {
-      columns[index].push({
-        text: cell.innerHTML, // Preserve HTML structure
-        id: cell.dataset.id || Infinity // Use id or Infinity for empty cells
-      });
-    });
+  // Convert columns to arrays of cell contents
+  const columns = Array.from(bodies).map(body => {
+    const cells = body.querySelectorAll('.cell');
+    return Array.from(cells).map(cell => ({
+      text: cell.dataset.original || cell.innerHTML, // Use original content if available
+      id: cell.dataset.id || Infinity,
+      currentHTML: cell.innerHTML // Store current displayed content
+    }));
   });
 
-  // Toggle between alphabetical and ID sorting based on icon class
   if (sortIcon.classList.contains('icon-sort-amount-asc')) {
-    // Sort alphabetically (ascending), empty cells last
     sortIcon.classList.remove('icon-sort-amount-asc');
     sortIcon.classList.add('icon-sort-alpha-asc');
     columns.forEach(col => col.sort((a, b) => {
@@ -230,19 +231,28 @@ function sorting() {
     sortIcon.classList.add('icon-sort-amount-asc');
     columns.forEach(col => col.sort((a, b) => a.id - b.id));
   }
-  
-  // Rebuild the table with sorted column data
-  rows.forEach((row, rowIndex) => {
-    const cells = row.querySelectorAll('td');
-    cells.forEach((cell, colIndex) => {
-      cell.innerHTML = columns[colIndex][rowIndex]?.text || '';
-      cell.dataset.id = columns[colIndex][rowIndex]?.id || '';
+
+  // Rebuild the columns with sorted data
+  bodies.forEach((body, colIndex) => {
+    const cells = body.querySelectorAll('.cell');
+    columns[colIndex].forEach((item, rowIndex) => {
+      const cell = cells[rowIndex];
+      cell.innerHTML = item.currentHTML; // Restore current content (post-search)
+      cell.dataset.id = item.id;
+      cell.dataset.original = item.text; // Update original content
+      cell.style.display = item.currentHTML ? 'block' : 'none'; // Preserve visibility
     });
   });
+
+  // Reapply search filter after sorting
+  const searchInput = table.closest('.toggle-content').querySelector('input[type="search"]');
+  if (searchInput.value) {
+    searching({ target: searchInput });
+  }
 }
 
 function coloringArti() {
-  const artis = document.querySelectorAll('.tables .plural tbody .arti');
+  const artis = document.querySelectorAll('.tables .plural .cell .arti');
   artis.forEach(arti => {
     if (arti.textContent === 's') {
       arti.classList.toggle('s');

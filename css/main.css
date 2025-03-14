@@ -417,50 +417,73 @@ header .settings .colors-list span:nth-child(4) {
     var(--die-color) 75%, 
     black 75%);
 }
+.tables .table {
+  display: flex;
+  gap: 3px;
+  width: 100%;
+}
+.tables .table .column {
+  width: 100%;
+}
 .tables table {
   width: 100%;
   border-spacing: 3px;
 }
-.tables table th {
+.tables table th,
+.tables .table .header {
   background-color: var(--light-main);
   text-align: center;
   padding: 5px;
 }
-.tables table td {
+.tables .table .header {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+.tables table td,
+.tables .table .cell {
   background-color: var(--light-grey);
   text-align: center;
   padding: 5px;
+}
+.tables .the .cell {
+  height: 40px;
+}
+.tables .plural .cell {
+  height: 70px;
+}
+.tables .table .cell:not(:last-child) {
+  margin-bottom: 3px;
+}
+.tables .plural .cell {
+  text-align: left;
+}
+.tables .plural .cell p {
+  display: flex;
+}
+.tables .plural .cell p .arti {
+  margin-right: 10px;
+  color: var(--dark-main);
+  width: 10px;
+}
+.tables .plural .cell p .arti.r {
+  color: var(--der-color);
+}
+.tables .plural .cell p .arti.s {
+  color: var(--das-color);
+}
+.tables .plural .cell p:first-child .arti.e {
+  color: var(--die-color);
+}
+.tables .plural .cell p:last-child .arti.e {
+  color: black;
+}
+.tables .plural .cell span .sp {
+  color: red;
 }
 .tables .kasus .table-container tr:nth-child(1) td:not(:first-child),
 .tables .kasus .table-container tr:nth-child(2) td:not(:first-child),
 .tables .kasus .table-container tr:nth-child(3) td:not(:first-child) {
   background-color: var(--dark-grey);
-}
-.tables .plural td {
-  text-align: left;
-}
-.tables .plural td p {
-  display: flex;
-}
-.tables table.plural td p .arti {
-  margin-right: 10px;
-  color: var(--dark-main);
-  width: 10px;
-}
-.tables table.plural td p .arti.r {
-  color: var(--der-color);
-}
-.tables table.plural td p .arti.s {
-  color: var(--das-color);
-}
-.tables table.plural td p:first-child .arti.e {
-  color: var(--die-color);
-}
-.tables table.plural td p:last-child .arti.e {
-  color: black;
-}
-.tables .plural td span .sp {
-  color: red;
 }
 .tables .kasus .table-container {
   overflow: auto;
