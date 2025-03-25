@@ -68,9 +68,10 @@ document.querySelectorAll('.toggle-header, .nested-toggle-header').forEach(heade
 
 let theData = { der: [], das: [], die: [] };
 let pluralData = { s: [], _: [], er: [], e: [], n: [] };
+let onlyPluralData = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-  fetch('data.json')
+  fetch('words.json')
     .then(response => response.json())
     .then(data => {
       processData(data);
@@ -93,12 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
         pluralData.s.push(el);
       } else if (pluralMarker === "-") {
         pluralData._.push(el);
-      } else if (pluralMarker === "r") {
+      } else if (pluralMarker === "er") {
         pluralData.er.push(el);
       } else if (pluralMarker === "e") {
         pluralData.e.push(el);
       } else if (pluralMarker === "n") {
         pluralData.n.push(el);
+      } else if (singular === "" && pluralMarker === "" && plural !== "") {
+        onlyPluralData.push(el);
       }
     });
   }
@@ -115,7 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
       for (let i = 0; i < maxLength; i++) {
         const cell = document.createElement('div');
         cell.classList.add('cell');
-        cell.textContent = arr[i] ? arr[i][3] : ''; // Use singular (index 3)
+        if (arr[i] && arr[i].length === 7) {
+          cell.classList.add("note");
+        }
+        cell.textContent = arr[i] ? arr[i][3] : '';
         cell.dataset.id = arr[i] ? arr[i][0] : ''; // Store id for sorting
         body.appendChild(cell);
       }
@@ -134,6 +140,9 @@ document.addEventListener('DOMContentLoaded', () => {
       for (let i = 0; i < maxLength; i++) {
         const cell = document.createElement('div');
         cell.classList.add('cell');
+        if (arr[i] && arr[i].length === 7) {
+          cell.classList.add("note");
+        }
         if (arr[i]) {
           cell.innerHTML = `<p><span class="arti">${arr[i][2]}</span><span>${arr[i][3]}</span></p> <p><span class="arti">e</span><span>${highlightDiff(arr[i][3], arr[i][5])}</span></p>`;
           cell.dataset.id = arr[i][0]; // Store id for sorting

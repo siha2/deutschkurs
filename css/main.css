@@ -451,6 +451,9 @@ header .settings .colors-list span:nth-child(4) {
 .tables .plural .cell {
   height: 70px;
 }
+.tables .table .cell.note {
+  background-color: var(--dark-grey);
+}
 .tables .table .cell:not(:last-child) {
   margin-bottom: 3px;
 }
