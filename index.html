@@ -6,6 +6,7 @@
     <meta name="description" content="Wir lernen Deutsch">
     <title>Deutschkurs</title>
     <link rel="icon" href="photos/logo.png">
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/icons.css">
 </head>
@@ -19,34 +20,17 @@
             <div class="line"></div>
         </div>
         <ul id="nav-links">
-            <li><a href="#tables">Tabellen</a></li>
-            <li><a href="#games">Spiele</a></li>
-            <div class="gear">
-              <i class="icon-gear" onclick="toggleSettings()"></i>
-              <div class="settings">
-                <div class="colors">
-                  <h3>Farben</h3>
-                  <div class="colors-list">
-                    <span data-dark="#a0c814" data-light="#9cdf163d" class="active"></span>
-                    <span data-dark="#e91e63" data-light="#e91e633d"></span>
-                    <span data-dark="#03a9f4" data-light="#03a9f43d"></span>
-                    <span data-dark="#ff9800" data-light="#ff98003d"></span>
-                  </div>
-                </div>
-                <div class="updateDate">
-                  <h3>Letzte Aktualisierung</h3>
-                  <p class="latestupdate"></p>
-                </div>
-              </div>
-            </div>
+          <li><a href="#tables">Tabellen</a></li>
+          <li><a href="#games">Spiele</a></li>
+          <li><a href="settings.html"><i class="icon-gear"></i></a></li>
         </ul>
       </div>
     </header>
     <main>
       <!-- starting landing -->
       <div class="landing" id="landing">
-        <img src="photos/landing.jpg" alt="landing">
         <div class="container">
+          <div class="welcome"><span class="h">Hallo: </span><span class="n">gast</span></div>
           <div class="text">
             <table>
               <tr>
@@ -497,6 +481,7 @@
     <footer>
       <p>Die Seite wurde von <a href="https://siha2.github.io/portfolio/"><img src="photos/me.png" alt="developer" title="Siha Rateeb"></a> erstellt</p>
     </footer>
+    <script src="js/base.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

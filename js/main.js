@@ -6,50 +6,7 @@ function toggleMenu() {
   burger.classList.toggle('open');
 }
 // ================================================
-// color settings
 
-let mainColors = JSON.parse(localStorage.getItem("color_option"));
-if (mainColors !== null) {
-  document.documentElement.style.setProperty("--dark-main", mainColors[0]);
-  document.documentElement.style.setProperty("--light-main", mainColors[1]);
-
-  document.querySelectorAll(".colors-list span").forEach(element => {
-    element.classList.remove("active");
-
-    if (element.dataset.dark === mainColors[0] && element.dataset.light === mainColors[1]) {
-      element.classList.add("active");
-    }
-  })
-}
-
-function toggleSettings() {
-  var settings = document.querySelector('.settings');
-  var gearicon = document.querySelector('.gear > i');
-  settings.classList.toggle('show');
-  gearicon.classList.toggle('spin');
-}
-
-const colorsoptions = document.querySelectorAll(".colors-list span");
-colorsoptions.forEach(op => {
-  op.addEventListener("click", (e) => {
-
-    // set color on root
-    document.documentElement.style.setProperty("--dark-main", e.target.dataset.dark);
-    document.documentElement.style.setProperty("--light-main", e.target.dataset.light);
-
-    localStorage.setItem("color_option", JSON.stringify([e.target.dataset.dark, e.target.dataset.light]));
-
-    handleActive(e);
-  });
-});
-
-function handleActive(ev) {
-  ev.target.parentElement.querySelectorAll(".active").forEach(element => {
-    element.classList.remove("active");
-  });
-  ev.target.classList.add("active");
-}
-// ================================================
 function toggleContent(element) {
   var content = element.nextElementSibling;
   var triangle = element.querySelector('.triangle');
@@ -64,6 +21,13 @@ document.querySelectorAll('.toggle-header, .nested-toggle-header').forEach(heade
   });
 });
 
+// ================================================
+// change name
+let nameContainer = document.querySelector(".welcome span.n");
+let full_name = JSON.parse(localStorage.getItem("user_name"));
+if (full_name !== null) {
+  nameContainer.textContent = full_name[0] + " " + full_name[1];
+}
 // ================================================
 
 let theData = { der: [], das: [], die: [] };
@@ -274,26 +238,7 @@ function coloringArti() {
 }
 
 // ================================================
-// latest update date
-lastUpdateElement = document.querySelector('.updateDate .latestupdate');
 
-async function fetchLatestUpdateDate() {
-  const response = await fetch('https://api.github.com/repos/siha2/deutschkurs/commits');
-  const data = await response.json();
-  const latestCommit = data[0];
-  const latestUpdateDate = new Date(latestCommit.commit.committer.date);
-  const formattedDate = latestUpdateDate.toLocaleDateString('de-DE', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric'
-  });
-  lastUpdateElement.textContent = formattedDate;
-}
-fetchLatestUpdateDate();
-// ================================================
 today = document.querySelector('.landing table .today');
 date = document.querySelector('.landing table .date');
 time = document.querySelector('.landing table .time');
