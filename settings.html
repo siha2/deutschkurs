@@ -14,36 +14,42 @@
 <body>
   <div class="settings-container">
     <div class="container">
-      <aside class="settings-sidebar">
-          <ul>
-              <li data-section="profile" class="active">Profil</li>
-              <li data-section="look">Aussehen</li>
-              <li data-section="data">Daten</li>
-          </ul>
-      </aside>
-      <main class="settings-content">
-        <section id="profile" class="settings-section active">
-          <h2>Ihr Profil</h2>
-          <label for="first-name">Ihr Vorname:</label>
-          <input type="text" id="first-name">
-          <label for="last-name">Ihr Nachname:</label>
-          <input type="text" id="last-name">
-          <button>Okay</button>
-        </section>
-        <section id="look" class="settings-section">
-          <h2>Farben</h2>
-          <div class="colors-list">
-            <span data-dark="#a0c814" data-light="#9cdf163d" class="active"></span>
-            <span data-dark="#e91e63" data-light="#e91e633d"></span>
-            <span data-dark="#03a9f4" data-light="#03a9f43d"></span>
-            <span data-dark="#ff9800" data-light="#ff98003d"></span>
-          </div>
-        </section>
-        <section id="data" class="settings-section">
-          <h2>Neueste Updates</h2>
-          <div class="dates"></div>
-        </section>
-      </main>
+      <header class="settings-header"></header>
+      <div class="page-content">
+        <aside class="settings-sidebar active" id="nav-links">
+            <ul>
+                <li data-section="profile" class="active">Profil</li>
+                <li data-section="look">Aussehen</li>
+                <li data-section="data">Daten</li>
+            </ul>
+        </aside>
+        <main class="settings-content">
+          <section id="profile" class="settings-section active">
+            <h2>Ihr Profil</h2>
+            <label for="first-name">Ihr Vorname:</label>
+            <input type="text" id="first-name">
+            <label for="last-name">Ihr Nachname:</label>
+            <input type="text" id="last-name">
+            <button>Okay</button>
+          </section>
+          <section id="look" class="settings-section">
+            <div class="settings-box">
+              <h2>Farben</h2>
+              <div class="colors-list">
+                <span data-dark="#a0c814" data-light="#9cdf163d" class="active"></span>
+                <span data-dark="#e91e63" data-light="#e91e633d"></span>
+                <span data-dark="#03a9f4" data-light="#03a9f43d"></span>
+                <span data-dark="#ff9800" data-light="#ff98003d"></span>
+              </div>
+            </div>
+          </section>
+          <section id="data" class="settings-section">
+            <h2>Neueste Updates</h2>
+            <div class="dates"></div>
+            <button id="toggleButton">Mehr anzeigen</button>
+          </section>
+        </main>
+      </div>
     </div>
   </div>
   <script src="js/base.js"></script>

@@ -1,3 +1,20 @@
+// get header
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+      document.querySelector(".settings-header").innerHTML = data;
+      customizeHeader();
+      let burger = document.querySelector(".burger");
+      burger.classList.add("open");
+    });
+});
+
+function customizeHeader() {
+  document.querySelector("#nav-links").remove();
+}
+
+// ================================================
 // switch tabs
 document.querySelectorAll(".settings-sidebar li").forEach(item => {
   item.addEventListener("click", () => {
@@ -19,6 +36,26 @@ button.addEventListener("click", () => {
   let fname = nameInput1.value;
   let lname = nameInput2.value;
   localStorage.setItem("user_name", JSON.stringify([fname, lname]));
+
+  let nameSaved = document.createElement("div");
+  nameSaved.className = "alert";
+  nameSaved.innerHTML = `<p>Saved</p>`;
+  document.querySelector(".settings-section#profile").appendChild(nameSaved);
+
+  let progressBar = document.createElement("div");
+  progressBar.className = "progress-bar";
+  nameSaved.appendChild(progressBar);
+
+  let progress = 0;
+  let interval = setInterval(() => {
+    progress += 10;
+    progressBar.style.width = progress + "%";
+    
+    if (progress >= 100) {
+      clearInterval(interval);
+      nameSaved.remove();
+    }
+  }, 30);
 });
 // ================================================
 // print names in inputs
@@ -52,24 +89,48 @@ function handleActive(ev) {
   ev.target.classList.add("active");
 }
 // ================================================
-
 // latest update date
-lastUpdateElement = document.querySelector('.settings-section#data .dates');
 
-async function fetchLatestUpdateDate() {
+const lastUpdateElement = document.querySelector('.settings-section#data .dates');
+const toggleButton = document.getElementById('toggleButton');
+let allDates = [];
+let showingAll = false;
+
+async function fetchLatestUpdateDates() {
   const response = await fetch('https://api.github.com/repos/siha2/deutschkurs/commits');
   const data = await response.json();
-  const latestCommit = data[0];
-  const latestUpdateDate = new Date(latestCommit.commit.committer.date);
-  const formattedDate = latestUpdateDate.toLocaleDateString('de-DE', {
+
+  allDates = data.map(commit => {
+    const commitDate = new Date(commit.commit.committer.date);
+    return commitDate.toLocaleDateString('de-DE', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
       hour: 'numeric',
       minute: 'numeric',
       second: 'numeric'
+    });
   });
-  lastUpdateElement.textContent = formattedDate;
+  renderDates();
 }
-fetchLatestUpdateDate();
-// ================================================
+
+function renderDates() {
+  lastUpdateElement.innerHTML = ''; 
+  const datesToShow = showingAll ? allDates : allDates.slice(0, 5);
+
+  datesToShow.forEach(date => {
+    const dateDiv = document.createElement('div');
+    dateDiv.textContent = date;
+    lastUpdateElement.appendChild(dateDiv);
+  });
+
+  toggleButton.style.display = allDates.length > 5 ? 'block' : 'none';
+}
+
+toggleButton.addEventListener('click', () => {
+  showingAll = !showingAll;
+  renderDates();
+  toggleButton.textContent = showingAll ? 'Weniger anzeigen' : 'Mehr anzeigen';
+});
+
+fetchLatestUpdateDates();

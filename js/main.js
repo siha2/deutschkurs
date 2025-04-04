@@ -1,12 +1,14 @@
 // ÄÖÜäöüß
-function toggleMenu() {
-  var navLinks = document.getElementById('nav-links');
-  var burger = document.querySelector('.burger');
-  navLinks.classList.toggle('active');
-  burger.classList.toggle('open');
-}
+// get header
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("header.html")
+    .then(response => response.text())
+    .then(data => {
+      document.querySelector(".the-header").innerHTML = data;
+    });
+});
 // ================================================
-
+// switch toggle
 function toggleContent(element) {
   var content = element.nextElementSibling;
   var triangle = element.querySelector('.triangle');
@@ -29,7 +31,7 @@ if (full_name !== null) {
   nameContainer.textContent = full_name[0] + " " + full_name[1];
 }
 // ================================================
-
+// get data
 let theData = { der: [], das: [], die: [] };
 let pluralData = { s: [], _: [], er: [], e: [], n: [] };
 let onlyPluralData = [];

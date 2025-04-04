@@ -1,3 +1,4 @@
+/* start basics */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -58,3 +59,106 @@ ul {
     width: 1170px;
   }
 }
+/* end basics */
+/* starting header */
+header {
+  background-color: var(--dark-grey); 
+  color: var(--black-color); 
+  position: fixed;
+  width: 100%;
+  z-index: 9999;
+}
+header .container {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a.lo {
+  display: flex;
+}
+header a.lo h1 {
+  color: var(--dark-main);
+  height: 38px;
+  line-height: 38px;
+}
+/* header a img {
+  width: 70px;
+} */
+header .burger {
+  display: none;
+  cursor: pointer;
+}
+header .burger .line {
+  width: 25px;
+  height: 3px;
+  background-color: var(--dark-main);
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+header .burger.open .line:nth-child(1) {
+  transform: rotate(45deg);
+  background-color: var(--black-color);
+  position: relative;
+  top: 8px; 
+}
+header .burger.open .line:nth-child(2) {
+  opacity: 0;
+}
+header .burger.open .line:nth-child(3) {
+  transform: rotate(-45deg);
+  background-color: var(--black-color);
+  position: relative;
+  top: -8px; 
+}
+header ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header ul li {
+  padding: 5px;
+  border-radius: 5px;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+header ul li a {
+  text-decoration: none;
+  transition: all 0.3s ease; 
+  display: block;
+}
+header ul li:hover {
+  background-color: var(--light-main);
+}
+@media (max-width: 768px) {
+  header .burger {
+      display: block;
+  }
+  header ul {
+    display: flex;
+    flex-direction: column;
+    right: -300px;
+    transition: right 0.5s ease;
+    position: absolute;
+    top: 70px;
+    background: var(--light-grey);
+    /* width: 100%; */
+    padding: 7px 0;
+    z-index: 999;
+    height: 100vh;
+    width: 280px;
+    justify-content: flex-start;
+    box-shadow: -10px 0 15px -5px rgba(0, 0, 0, 0.3);
+  }
+  header ul.active {
+    right: 0;
+  }
+  header ul li {
+    width: 90%;
+    text-align: center;
+    padding: 7px;
+  }
+}
+/* ending header */
