@@ -4,6 +4,9 @@
   min-height: 100vh;
   background-color: var(--light-grey);
 }
+header .burger {
+  display: block;
+}
 .container {
   padding: 0;
 }
@@ -38,7 +41,8 @@
   color: white;
 }
 .settings-content {
-  width: 75%;
+  /* width: 75%; */
+  width: 100%;
   padding: 20px;
   background-color: white;
   overflow: auto;
