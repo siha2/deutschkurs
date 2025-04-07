@@ -138,15 +138,35 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function highlightDiff(singular, plural) {
+  // If plural contains a "/", split it into two forms
+  const pluralForms = plural.split('/');
   let result = '';
-  const maxLength = Math.max(singular.length, plural.length);
-  for (let i = 0; i < maxLength; i++) {
-    if (singular[i] !== plural[i]) {
-      result += `<span class="sp">${plural[i] || ''}</span>`;
-    } else {
-      result += plural[i] || '';
+
+  // Function to compare and highlight differences between singular and a plural form
+  function compareAndHighlight(singular, pluralForm) {
+    let highlighted = '';
+    const maxLength = Math.max(singular.length, pluralForm.length);
+    for (let i = 0; i < maxLength; i++) {
+      if (singular[i] !== pluralForm[i]) {
+        highlighted += `<span class="sp">${pluralForm[i] || ''}</span>`;
+      } else {
+        highlighted += pluralForm[i] || '';
+      }
     }
+    return highlighted;
   }
+
+  // If there’s only one plural form
+  if (pluralForms.length === 1) {
+    result = compareAndHighlight(singular, pluralForms[0]);
+  } 
+  // If there are two plural forms
+  else if (pluralForms.length === 2) {
+    const firstPlural = compareAndHighlight(singular, pluralForms[0]);
+    const secondPlural = compareAndHighlight(singular, pluralForms[1]);
+    result = `${firstPlural} / ${secondPlural}`;
+  }
+
   return result;
 }
 
