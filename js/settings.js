@@ -39,7 +39,7 @@ button.addEventListener("click", () => {
 
   let nameSaved = document.createElement("div");
   nameSaved.className = "alert";
-  nameSaved.innerHTML = `<p>Saved</p>`;
+  nameSaved.innerHTML = `<p>Gespeichert</p>`;
   document.querySelector(".settings-section#profile").appendChild(nameSaved);
 
   let progressBar = document.createElement("div");
@@ -118,11 +118,13 @@ function renderDates() {
   lastUpdateElement.innerHTML = ''; 
   const datesToShow = showingAll ? allDates : allDates.slice(0, 5);
 
-  datesToShow.forEach(date => {
+  datesToShow.forEach((date, index) => {
+    const number = allDates.length - index;
     const dateDiv = document.createElement('div');
-    dateDiv.textContent = date;
+    dateDiv.innerHTML = `<span class="num">#${number}</span> ${date}`;
     lastUpdateElement.appendChild(dateDiv);
   });
+  
 
   toggleButton.style.display = allDates.length > 5 ? 'block' : 'none';
 }

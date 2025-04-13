@@ -210,6 +210,7 @@ h2.heading:hover::before {
 .tables .table .header {
   font-weight: bold;
   margin-bottom: 3px;
+  min-width: 70px;
 }
 .tables table td,
 .tables .table .cell {
@@ -217,11 +218,12 @@ h2.heading:hover::before {
   text-align: center;
   padding: 5px;
 }
+.tables .table .cell {
+  height: 70px;
+  white-space: nowrap;
+}
 .tables .the .cell {
   height: 40px;
-}
-.tables .plural .cell {
-  height: 70px;
 }
 .tables .table .cell.note {
   background-color: var(--dark-grey);
@@ -267,12 +269,25 @@ h2.heading:hover::before {
 .tables .kasus tr td:nth-child(1) {
   background-color: var(--light-main);
 }
-.tables .kasus td span.sp {
+.tables  td span.sp {
   color: red;
 }
 .tables .kasus td {
   white-space: nowrap;
   min-width: 70px;
+}
+.tables .only-plural {
+  all: unset;
+}
+.tables .only-plural .body {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 3px;
+}
+.tables .only-plural .cell-only-plural {
+  background-color: var(--light-grey);
+  padding: 5px;
+  text-align: center;
 }
 /* end tables */
 /* start games */

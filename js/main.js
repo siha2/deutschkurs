@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
       processData(data);
       addingTheTable();
       addingPluralTable();
+      addingOnlyPluralTable();
     })
     .catch(error => console.error('Error fetching data:', error));
 
@@ -135,14 +136,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  function addingOnlyPluralTable() {
+    const body = document.querySelector('.tables .only-plural .body');
+    onlyPluralData.forEach(el => {
+      const cell = document.createElement('div');
+      cell.classList.add('cell-only-plural');
+      cell.textContent = el[5];
+      body.appendChild(cell);
+    });
+  }
 });
 
 function highlightDiff(singular, plural) {
-  // If plural contains a "/", split it into two forms
   const pluralForms = plural.split('/');
   let result = '';
 
-  // Function to compare and highlight differences between singular and a plural form
   function compareAndHighlight(singular, pluralForm) {
     let highlighted = '';
     const maxLength = Math.max(singular.length, pluralForm.length);
@@ -156,11 +165,9 @@ function highlightDiff(singular, plural) {
     return highlighted;
   }
 
-  // If there’s only one plural form
   if (pluralForms.length === 1) {
     result = compareAndHighlight(singular, pluralForms[0]);
   } 
-  // If there are two plural forms
   else if (pluralForms.length === 2) {
     const firstPlural = compareAndHighlight(singular, pluralForms[0]);
     const secondPlural = compareAndHighlight(singular, pluralForms[1]);
@@ -170,33 +177,27 @@ function highlightDiff(singular, plural) {
   return result;
 }
 
-// Popup function (updated to check for data before showing)
 function showPopup(event) {
   const cell = event.currentTarget;
   const singular = cell.dataset.singular;
   const note = cell.dataset.note;
 
-  // Only show popup if both singular and note exist
   if (!singular || !note) return;
 
-  // Create overlay
   const overlay = document.createElement('div');
   overlay.classList.add('popup-overlay');
   document.body.appendChild(overlay);
 
-  // Create popup with singular and note
   const popup = document.createElement('div');
   popup.classList.add('popup');
   popup.innerHTML = `
     <button class="popup-close">X</button>
     <div class="popup-content">
-      <strong>Singular:</strong> ${singular}<br>
-      <strong>Note:</strong> ${note}
+      <strong>${singular}</strong><br>${note}
     </div>
   `;
   document.body.appendChild(popup);
 
-  // Close popup when "X" is clicked or overlay is clicked
   const closeButton = popup.querySelector('.popup-close');
   closeButton.addEventListener('click', () => {
     document.body.removeChild(popup);
