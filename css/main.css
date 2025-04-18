@@ -258,9 +258,9 @@ h2.heading:hover::before {
 .tables .plural .cell span .sp {
   color: red;
 }
-.tables .kasus .table-container tr:nth-child(1) td:not(:first-child),
-.tables .kasus .table-container tr:nth-child(2) td:not(:first-child),
-.tables .kasus .table-container tr:nth-child(3) td:not(:first-child) {
+.tables .kasus .table-container tr.dark td:not(:first-child),
+.tables .kasus .table-container tr.dark td:not(:first-child),
+.tables .kasus .table-container tr.dark td:not(:first-child) {
   background-color: var(--dark-grey);
 }
 .tables .kasus .table-container {
@@ -269,7 +269,7 @@ h2.heading:hover::before {
 .tables .kasus tr td:nth-child(1) {
   background-color: var(--light-main);
 }
-.tables  td span.sp {
+.tables span.sp {
   color: red;
 }
 .tables .kasus td {
@@ -289,6 +289,34 @@ h2.heading:hover::before {
   padding: 5px;
   text-align: center;
 }
+.tables .partizip .cell {
+  height: 40px;
+}
+@media (max-width: 700px) {
+  .tables .partizip .cell {
+    display: flex;
+    flex-direction: column;
+    height: 70px;
+  }
+  .tables .partizip .cell span.m {
+    display: none;
+  }
+}
+.user-btn {
+  display: block;
+  width: fit-content;
+  padding: 10px 20px;
+  background-color: var(--dark-main);
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: inset -4px -4px 11px 5px #00000017;
+  margin: auto;
+}
+.user-btn:hover {
+  box-shadow: inset 4px 4px 11px 5px #00000017;
+}
+
 /* end tables */
 /* start games */
 .games {
