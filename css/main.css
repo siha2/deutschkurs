@@ -50,6 +50,7 @@ h2.heading:hover::before {
   display: block;
 }
 .triangle {
+  display: inline-block;
   transition: transform 0.3s ease;
 }
 .triangle.rotate {
@@ -194,6 +195,12 @@ h2.heading:hover::before {
   gap: 3px;
   width: 100%;
 }
+.tables .the .header,
+.tables .plural .header {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
 .tables .table .column {
   width: 100%;
 }
@@ -269,12 +276,15 @@ h2.heading:hover::before {
 .tables .kasus tr td:nth-child(1) {
   background-color: var(--light-main);
 }
-.tables span.sp {
+.tables .sp {
   color: red;
 }
 .tables .kasus td {
   white-space: nowrap;
   min-width: 70px;
+}
+.tables .kasus td.verben {
+  text-wrap: auto;
 }
 .tables .only-plural {
   all: unset;
@@ -284,10 +294,12 @@ h2.heading:hover::before {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 3px;
 }
-.tables .only-plural .cell-only-plural {
+.tables .table.only-plural .cell-only-plural {
   background-color: var(--light-grey);
   padding: 5px;
   text-align: center;
+  height: fit-content;
+  margin-bottom: 0;
 }
 .tables .partizip .cell {
   height: 40px;

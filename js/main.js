@@ -1,5 +1,5 @@
-// ÄÖÜäöüß
-// get header
+// Header Loading
+// =============
 document.addEventListener("DOMContentLoaded", () => {
   fetch("header.html")
     .then(response => response.text())
@@ -7,8 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector(".the-header").innerHTML = data;
     });
 });
-// ================================================
-// switch toggle
+
+// Toggle Content
+// =============
 function toggleContent(element) {
   var content = element.nextElementSibling;
   var triangle = element.querySelector('.triangle');
@@ -16,22 +17,22 @@ function toggleContent(element) {
   triangle.classList.toggle('rotate');
 }
 
-// Attach toggleContent function to all toggle headers
 document.querySelectorAll('.toggle-header, .nested-toggle-header').forEach(header => {
   header.addEventListener('click', function() {
     toggleContent(this);
   });
 });
 
-// ================================================
-// change name
+// Change Name
+// =============
 let nameContainer = document.querySelector(".welcome span.n");
 let full_name = JSON.parse(localStorage.getItem("user_name"));
 if (full_name !== null) {
   nameContainer.textContent = full_name[0] + " " + full_name[1];
 }
-// ================================================
-// get data
+
+// Get Data
+// =============
 let theData = { der: [], das: [], die: [] };
 let pluralData = { s: [], _: [], er: [], e: [], n: [] };
 let onlyPluralData = [];
@@ -76,26 +77,36 @@ document.addEventListener('DOMContentLoaded', () => {
   function addingTheTable() {
     const columns = document.querySelectorAll('.tables .the .column');
     const bodies = Array.from(columns).map(col => col.querySelector('.body'));
+    const headerNums = Array.from(columns).map(col => col.querySelector('.header .num'));
+    const toggleNum = document.querySelector('.toggle.first .toggle-header .num');
     bodies.forEach(body => body.innerHTML = '');
     const maxLength = Math.max(theData.der.length, theData.das.length, theData.die.length);
 
+    let totalCount = 0;
     [theData.der, theData.das, theData.die].forEach((arr, colIndex) => {
       const body = bodies[colIndex];
+      let columnCount = 0;
       for (let i = 0; i < maxLength; i++) {
         const cell = document.createElement('div');
         cell.classList.add('cell');
         if (arr[i] && arr[i].length === 7) {
           cell.classList.add("note");
-          cell.dataset.singular = arr[i][3]; // Store the singular word
-          cell.dataset.note = arr[i][6]; // Store the note
+          cell.dataset.singular = arr[i][3];
+          cell.dataset.note = arr[i][6];
         }
         cell.textContent = arr[i] ? arr[i][3] : '';
         cell.dataset.id = arr[i] ? arr[i][0] : '';
+        if (arr[i] && arr[i][3]) {
+          columnCount++;
+          totalCount++;
+        }
         body.appendChild(cell);
       }
+      headerNums[colIndex].textContent = columnCount;
     });
 
-    // Add click event listeners to note cells with data
+    toggleNum.textContent = totalCount;
+
     document.querySelectorAll('.tables .the .cell.note').forEach(cell => {
       if (cell.dataset.singular && cell.dataset.note) {
         cell.addEventListener('click', showPopup);
@@ -106,30 +117,38 @@ document.addEventListener('DOMContentLoaded', () => {
   function addingPluralTable() {
     const columns = document.querySelectorAll('.tables .plural .column');
     const bodies = Array.from(columns).map(col => col.querySelector('.body'));
+    const headerNums = Array.from(columns).map(col => col.querySelector('.header .num'));
+    const toggleNum = document.querySelector('.toggle.second .toggle-header .num');
     bodies.forEach(body => body.innerHTML = '');
     const maxLength = Math.max(pluralData.s.length, pluralData._.length, pluralData.er.length, pluralData.e.length, pluralData.n.length);
 
+    let totalCount = 0;
     [pluralData.s, pluralData._, pluralData.er, pluralData.e, pluralData.n].forEach((arr, colIndex) => {
       const body = bodies[colIndex];
+      let columnCount = 0;
       for (let i = 0; i < maxLength; i++) {
         const cell = document.createElement('div');
         cell.classList.add('cell');
         if (arr[i] && arr[i].length === 7) {
           cell.classList.add("note");
-          cell.dataset.singular = arr[i][3]; // Store the singular word
-          cell.dataset.note = arr[i][6]; // Store the note
+          cell.dataset.singular = arr[i][3];
+          cell.dataset.note = arr[i][6];
         }
         if (arr[i]) {
           cell.innerHTML = `<p><span class="arti">${arr[i][2]}</span><span>${arr[i][3]}</span></p> <p><span class="arti">e</span><span>${highlightDiff(arr[i][3], arr[i][5])}</span></p>`;
           cell.dataset.id = arr[i][0];
+          columnCount++;
+          totalCount++;
         } else {
           cell.textContent = '';
         }
         body.appendChild(cell);
       }
+      headerNums[colIndex].textContent = columnCount;
     });
 
-    // Add click event listeners to note cells with data
+    toggleNum.textContent = totalCount;
+
     document.querySelectorAll('.tables .plural .cell.note').forEach(cell => {
       if (cell.dataset.singular && cell.dataset.note) {
         cell.addEventListener('click', showPopup);
@@ -139,15 +158,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function addingOnlyPluralTable() {
     const body = document.querySelector('.tables .only-plural .body');
+    const toggleNum = document.querySelector('.toggle.fourth .toggle-header .num');
+    body.innerHTML = '';
+    let totalCount = 0;
     onlyPluralData.forEach(el => {
       const cell = document.createElement('div');
-      cell.classList.add('cell-only-plural');
+      cell.classList.add('cell-only-plural', 'cell');
       cell.textContent = el[5];
+      cell.dataset.id = el[0];
+      cell.dataset.original = el[5];
+      if (el[5]) {
+        totalCount++;
+      }
       body.appendChild(cell);
     });
+
+    toggleNum.textContent = totalCount;
   }
 });
 
+// Highlight Difference
+// =============
 function highlightDiff(singular, plural) {
   const pluralForms = plural.split('/');
   let result = '';
@@ -167,8 +198,7 @@ function highlightDiff(singular, plural) {
 
   if (pluralForms.length === 1) {
     result = compareAndHighlight(singular, pluralForms[0]);
-  } 
-  else if (pluralForms.length === 2) {
+  } else if (pluralForms.length === 2) {
     const firstPlural = compareAndHighlight(singular, pluralForms[0]);
     const secondPlural = compareAndHighlight(singular, pluralForms[1]);
     result = `${firstPlural} / ${secondPlural}`;
@@ -177,6 +207,8 @@ function highlightDiff(singular, plural) {
   return result;
 }
 
+// Show Popup
+// =============
 function showPopup(event) {
   const cell = event.currentTarget;
   const singular = cell.dataset.singular;
@@ -209,8 +241,8 @@ function showPopup(event) {
   });
 }
 
-// ================================================
 // Features
+// =============
 let search1 = document.querySelector('.first .features input[type="search"]');
 let sort1 = document.querySelector('.first .features .sort');
 
@@ -218,7 +250,9 @@ let search2 = document.querySelector('.second .features input[type="search"]');
 let sort2 = document.querySelector('.second .features .sort');
 let coloring = document.querySelector('.second .features .coloring input[type="checkbox"]');
 
-// Event listeners
+let search3 = document.querySelector('.fourth .features input[type="search"]');
+let sort3 = document.querySelector('.fourth .features .sort');
+
 search1.addEventListener('input', searching);
 sort1.addEventListener('click', sorting);
 
@@ -226,13 +260,43 @@ search2.addEventListener('input', searching);
 sort2.addEventListener('click', sorting);
 coloring.addEventListener('click', coloringArti);
 
+search3.addEventListener('input', searching);
+sort3.addEventListener('click', sorting);
+
 function searching(e) {
   const searchValue = e.target.value.toLowerCase();
-  const table = e.target.closest('.toggle-content').querySelector('.table');
+  const toggleContent = e.target.closest('.toggle-content');
+  const table = toggleContent.querySelector('.table');
   const bodies = table.querySelectorAll('.body');
+  const toggleNum = toggleContent.closest('.toggle').querySelector('.toggle-header .num');
+  let totalCount = 0;
 
-  bodies.forEach(body => {
-    const cells = body.querySelectorAll('.cell');
+  if (table.classList.contains('the') || table.classList.contains('plural')) {
+    const headerNums = Array.from(table.querySelectorAll('.column .header .num'));
+    bodies.forEach((body, colIndex) => {
+      const cells = body.querySelectorAll('.cell');
+      let columnCount = 0;
+      cells.forEach(cell => {
+        if (!cell.dataset.original) {
+          cell.dataset.original = cell.innerHTML;
+        }
+        const text = cell.textContent.toLowerCase();
+        if (text.includes(searchValue)) {
+          cell.innerHTML = cell.dataset.original;
+          cell.style.display = 'block';
+          if (cell.textContent.trim()) {
+            columnCount++;
+            totalCount++;
+          }
+        } else {
+          cell.style.display = 'none';
+        }
+      });
+      headerNums[colIndex].textContent = columnCount;
+    });
+    toggleNum.textContent = totalCount;
+  } else if (table.classList.contains('only-plural')) {
+    const cells = bodies[0].querySelectorAll('.cell');
     cells.forEach(cell => {
       if (!cell.dataset.original) {
         cell.dataset.original = cell.innerHTML;
@@ -241,11 +305,15 @@ function searching(e) {
       if (text.includes(searchValue)) {
         cell.innerHTML = cell.dataset.original;
         cell.style.display = 'block';
+        if (cell.textContent.trim()) {
+          totalCount++;
+        }
       } else {
         cell.style.display = 'none';
       }
     });
-  });
+    toggleNum.textContent = totalCount;
+  }
 }
 
 function sorting() {
@@ -257,14 +325,25 @@ function sorting() {
 
   const columns = Array.from(bodies).map(body => {
     const cells = body.querySelectorAll('.cell');
-    return Array.from(cells).map(cell => ({
-      text: cell.dataset.original || cell.innerHTML,
-      id: cell.dataset.id || Infinity,
-      currentHTML: cell.innerHTML,
-      classes: Array.from(cell.classList),
-      singular: cell.dataset.singular || '', // Preserve the singular word
-      note: cell.dataset.note || '' // Preserve the note
-    }));
+    return Array.from(cells).map(cell => {
+      let sortText = cell.dataset.singular || '';
+      if (!sortText) {
+        const spans = cell.querySelectorAll('span');
+        if (spans.length > 1) {
+          sortText = spans[1].textContent;
+        } else {
+          sortText = cell.textContent;
+        }
+      }
+      return {
+        text: sortText,
+        id: cell.dataset.id || Infinity,
+        currentHTML: cell.innerHTML,
+        classes: Array.from(cell.classList),
+        singular: cell.dataset.singular || '',
+        note: cell.dataset.note || ''
+      };
+    });
   });
 
   if (sortIcon.classList.contains('icon-sort-amount-asc')) {
@@ -291,14 +370,13 @@ function sorting() {
       });
       cell.innerHTML = item.currentHTML;
       cell.dataset.id = item.id;
-      cell.dataset.original = item.text;
-      cell.dataset.singular = item.singular; // Reapply the singular word
-      cell.dataset.note = item.note; // Reapply the note
-      // Only add listener if cell has both singular and note data
+      cell.dataset.original = item.currentHTML;
+      cell.dataset.singular = item.singular;
+      cell.dataset.note = item.note;
       if (cell.classList.contains('note')) {
-        cell.removeEventListener('click', showPopup); // Remove old listener
+        cell.removeEventListener('click', showPopup);
         if (item.singular && item.note) {
-          cell.addEventListener('click', showPopup); // Add listener only if data exists
+          cell.addEventListener('click', showPopup);
         }
       }
     });
@@ -323,8 +401,8 @@ function coloringArti() {
   });
 }
 
-// ================================================
-
+// Date and Time Update
+// =============
 today = document.querySelector('.landing table .today');
 date = document.querySelector('.landing table .date');
 time = document.querySelector('.landing table .time');
@@ -344,6 +422,5 @@ function updateDateTime() {
     second: 'numeric'
   });
 }
-updateDateTime(); 
-setInterval(updateDateTime, 1000); 
-// ================================================
+updateDateTime();
+setInterval(updateDateTime, 1000);

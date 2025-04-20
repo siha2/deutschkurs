@@ -43,7 +43,10 @@
           <div class="toggle first">
             <div class="toggle-header">
               <span>Bestimmter Artikel</span>
-              <span class="triangle">&#9654;</span>
+              <div class="other">
+                <span class="num-container">(<span class="num">0</span>)</span>
+                <span class="triangle">&#9654;</span>
+              </div>
             </div>
             <div class="toggle-content">
               <div class="features">
@@ -54,15 +57,15 @@
               </div>
               <div class="table the">
                 <div class="column">
-                  <div class="header">der</div>
+                  <div class="header">der <span class="num-container">(<span class="num">0</span>)</span></div>
                   <div class="body"></div>
                 </div>
                 <div class="column">
-                  <div class="header">das</div>
+                  <div class="header">das <span class="num-container">(<span class="num">0</span>)</span></div>
                   <div class="body"></div>
                 </div>
                 <div class="column">
-                  <div class="header">die</div>
+                  <div class="header">die <span class="num-container">(<span class="num">0</span>)</span></div>
                   <div class="body"></div>
                 </div>
               </div>
@@ -71,7 +74,10 @@
           <div class="toggle second">
             <div class="toggle-header">
               <span>Singular und Plural</span>
-              <span class="triangle">&#9654;</span>
+              <div class="other">
+                <span class="num-container">(<span class="num">0</span>)</span>
+                <span class="triangle">&#9654;</span>
+              </div>
             </div>
             <div class="toggle-content">
               <div class="features">
@@ -86,23 +92,23 @@
               </div>
               <div class="table plural">
                 <div class="column">
-                  <div class="header">-s</div>
+                  <div class="header">-s <span class="num-container">(<span class="num">0</span>)</span></div>
                   <div class="body"></div>
                 </div>
                 <div class="column">
-                  <div class="header">( ¨ )-</div>
+                  <div class="header">( ¨ )- <span class="num-container">(<span class="num">0</span>)</span></div>
                   <div class="body"></div>
                 </div>
                 <div class="column">
-                  <div class="header">( ¨ )-er</div>
+                  <div class="header">( ¨ )-er <span class="num-container">(<span class="num">0</span>)</span></div>
                   <div class="body"></div>
                 </div>
                 <div class="column">
-                  <div class="header">( ¨ )-e</div>
+                  <div class="header">( ¨ )-e <span class="num-container">(<span class="num">0</span>)</span></div>
                   <div class="body"></div>
                 </div>
                 <div class="column">
-                  <div class="header">-(e)n</div>
+                  <div class="header">-(e)n <span class="num-container">(<span class="num">0</span>)</span></div>
                   <div class="body"></div>
                 </div>
               </div>
@@ -225,6 +231,10 @@
                       <td>Ihr<span class="sp">e</span></td>
                       <td>Ihr<span class="sp">e</span></td>
                     </tr>
+                    <tr class="dark">
+                      <td></td>
+                      <td colspan="4" class="verben">sein</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -338,6 +348,10 @@
                       <td>Ihr</td>
                       <td>Ihr<span class="sp">e</span></td>
                       <td>Ihr<span class="sp">e</span></td>
+                    </tr>
+                    <tr class="dark">
+                      <td></td>
+                      <td colspan="4" class="verben">brauchen / haben / machen / kochen / essen / kaufen / nehmen / mögen / möchten</td>
                     </tr>
                   </tbody>
                 </table>
@@ -453,6 +467,9 @@
                       <td>Ihr<span class="sp">er</span></td>
                       <td>Ihr<span class="sp">en</span></td>
                     </tr>
+                    <tr class="dark">
+                      <td></td>
+                      <td colspan="4" class="verben">helfen / stehen / gefallen / passen</td>
                   </tbody>
                 </table>
               </div>
@@ -484,15 +501,18 @@
           <div class="toggle fourth">
             <div class="toggle-header">
               <span>Immer Plural</span>
-              <span class="triangle">&#9654;</span>
+              <div class="other">
+                <span class="num-container">(<span class="num">0</span>)</span>
+                <span class="triangle">&#9654;</span>
+              </div>
             </div>
             <div class="toggle-content">
-              <!-- <div class="features">
+              <div class="features">
                 <input type="search" value="" placeholder="Suchen...">
                 <span class="sort">
                   <i class="icon-sort-amount-asc"></i>
                 </span>
-              </div> -->
+              </div>
               <div class="table only-plural">
                 <div class="body"></div>
               </div>
@@ -666,6 +686,70 @@
                   </div>
                 </div>
               </div>                          
+            </div>
+          </div>
+          <div class="toggle seventh">
+            <div class="toggle-header">
+              <span>Personalpronomen</span>
+              <span class="triangle">&#9654;</span>
+            </div>
+            <div class="toggle-content">
+              <table class="pronomen">
+                <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Akk</th>
+                    <th>Dat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ich</td>
+                    <td>mich</td>
+                    <td>mir</td>
+                  </tr>
+                  <tr>
+                    <td>du</td>
+                    <td>dich</td>
+                    <td>dir</td>
+                  </tr>
+                  <tr>
+                    <td>er</td>
+                    <td>ihn</td>
+                    <td>ihm</td>
+                  </tr>
+                  <tr>
+                    <td class="sp">es</td>
+                    <td class="sp">es</td>
+                    <td>ihm</td>
+                  </tr>
+                  <tr>
+                    <td class="sp">sie</td>
+                    <td class="sp">sie</td>
+                    <td>ihr</td>
+                  </tr>
+                  <tr>
+                    <td>wir</td>
+                    <td class="sp">uns</td>
+                    <td class="sp">uns</td>
+                  </tr>
+                  <tr>
+                    <td>ihr</td>
+                    <td class="sp">euch</td>
+                    <td class="sp">euch</td>
+                  </tr>
+                  <tr>
+                    <td class="sp">sie</td>
+                    <td class="sp">sie</td>
+                    <td>ihnen</td>
+                  </tr>
+                  <tr>
+                    <td class="sp">Sie</td>
+                    <td class="sp">Sie</td>
+                    <td>Ihnen</td>
+                  </tr>
+                </tbody>
+              </table>                                      
             </div>
           </div>
           <a href="user_words.html" class="user-btn">Meine Wörte</a>
