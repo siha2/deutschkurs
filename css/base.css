@@ -129,6 +129,11 @@ header ul li a {
   transition: all 0.3s ease; 
   display: block;
 }
+header ul li a img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
 header ul li:hover {
   background-color: var(--light-main);
 }

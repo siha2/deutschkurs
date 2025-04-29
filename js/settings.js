@@ -1,6 +1,6 @@
 // get header
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("header.html")
+  fetch("components/header.html")
     .then(response => response.text())
     .then(data => {
       document.querySelector(".settings-header").innerHTML = data;
