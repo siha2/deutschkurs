@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Load header
-  const loadHeader = fetch("pages/components/header.html")
+  const loadHeader = fetch("components/header.html")
     .then(response => {
       if (!response.ok) throw new Error(`Failed to fetch header.html: ${response.status}`);
       return response.text();
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   // Load tables
-  const loadTables = fetch("pages/components/main_tables.html")
+  const loadTables = fetch("components/main_tables.html")
     .then(response => {
       if (!response.ok) throw new Error(`Failed to fetch main_tables.html: ${response.status}`);
       return response.text();

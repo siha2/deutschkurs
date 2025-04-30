@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const navLinks = document.querySelector("#nav-links");
       if (!navLinks) throw new Error("Nav links element (#nav-links) not found");
       navLinks.innerHTML = `
-        <li><a href="/index.html">Hauptseite</a></li>
+        <li><a href="index.html">Hauptseite</a></li>
         <li><a href="settings.html">Einstellungen</a></li>
       `;
     });

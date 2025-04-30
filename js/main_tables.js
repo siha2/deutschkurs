@@ -15,7 +15,7 @@ let onlyPluralData = [];
 
 // Initialize Tables
 function initializeTables() {
-  fetch('/words.json')
+  fetch('words.json')
     .then(response => {
       if (!response.ok) throw new Error(`Failed to fetch words.json: ${response.status}`);
       return response.json();
@@ -363,14 +363,14 @@ function sorting() {
   });
 
   if (sortIcon.getAttribute('src').includes('sort-amount-asc.png')) {
-    sortIcon.setAttribute('src', '../../photos/sort-alpha-asc.png');
+    sortIcon.setAttribute('src', 'photos/sort-alpha-asc.png');
     columns.forEach(col => col.sort((a, b) => {
       if (a.text === '' && b.text !== '') return 1;
       if (a.text !== '' && b.text === '') return -1;
       return a.text.localeCompare(b.text);
     }));
   } else {
-    sortIcon.setAttribute('src', '../../photos/sort-amount-asc.png');
+    sortIcon.setAttribute('src', 'photos/sort-amount-asc.png');
     columns.forEach(col => col.sort((a, b) => a.id - b.id));
   }
 
