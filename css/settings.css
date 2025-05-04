@@ -102,8 +102,12 @@ button:hover {
 .settings-box {
   box-shadow: 0px 1px 3px 2px rgb(0 0 0 / 10%);
   padding: 5px;
-  width: fit-content;
+  /* width: fit-content; */
   border-radius: 5px;
+  margin-bottom: 10px;
+}
+.settings-box h2 {
+  font-size: 25px;
 }
 .settings-section#look span {
   width: 24px;
@@ -128,6 +132,24 @@ button:hover {
 .settings-section#look span:nth-child(4) {
   background-color: #ff9800;
 }
+#langSelector {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #333;
+  outline: none;
+  cursor: pointer;
+}
+#langSelector:hover {
+  border-color: #888;
+}
+#langSelector:focus {
+  border-color: #555;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
 .dates div {
   background: var(--light-grey);
   padding: 10px;

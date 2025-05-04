@@ -1,4 +1,5 @@
 // get header
+// ==============
 document.addEventListener("DOMContentLoaded", () => {
   fetch("components/header.html")
     .then(response => response.text())
@@ -14,8 +15,9 @@ function customizeHeader() {
   document.querySelector("#nav-links").remove();
 }
 
-// ================================================
 // switch tabs
+// ==============
+
 document.querySelectorAll(".settings-sidebar li").forEach(item => {
   item.addEventListener("click", () => {
       document.querySelectorAll(".settings-sidebar li").forEach(li => li.classList.remove("active"));
@@ -25,8 +27,8 @@ document.querySelectorAll(".settings-sidebar li").forEach(item => {
       document.getElementById(item.dataset.section).classList.add("active");
   });
 });
-// ================================================
 // change name
+// ==============
 
 let nameInput1 = document.querySelector(".settings-section#profile input#first-name");
 let nameInput2 = document.querySelector(".settings-section#profile input#last-name");
@@ -39,8 +41,9 @@ button.addEventListener("click", () => {
 
   let nameSaved = document.createElement("div");
   nameSaved.className = "alert";
-  nameSaved.innerHTML = `<p>Gespeichert</p>`;
+  nameSaved.innerHTML = `<p data-i18n="save"></p>`;
   document.querySelector(".settings-section#profile").appendChild(nameSaved);
+  updateTexts();
 
   let progressBar = document.createElement("div");
   progressBar.className = "progress-bar";
@@ -57,16 +60,16 @@ button.addEventListener("click", () => {
     }
   }, 30);
 });
-// ================================================
 // print names in inputs
+// ==============
 let full_name = JSON.parse(localStorage.getItem("user_name"));
 if (full_name !== null) {
   nameInput1.value = full_name[0];
   nameInput2.value = full_name[1];
 }
 
-// ================================================
 // set colors
+// ==============
 
 const colorsoptions = document.querySelectorAll(".colors-list span");
 colorsoptions.forEach(op => {
@@ -88,8 +91,8 @@ function handleActive(ev) {
   });
   ev.target.classList.add("active");
 }
-// ================================================
 // latest update date
+// ==============
 
 const lastUpdateElement = document.querySelector('.settings-section#data .dates');
 const toggleButton = document.getElementById('toggleButton');
@@ -132,7 +135,15 @@ function renderDates() {
 toggleButton.addEventListener('click', () => {
   showingAll = !showingAll;
   renderDates();
-  toggleButton.textContent = showingAll ? 'Weniger anzeigen' : 'Mehr anzeigen';
+  toggleButton.setAttribute('data-i18n', showingAll ? 'see_less' : 'see_more');
+  updateTexts();
+
 });
 
 fetchLatestUpdateDates();
+// change language
+// ===============
+
+document.getElementById("langSelector").addEventListener("change", e => {
+  loadLanguage(e.target.value);
+});
