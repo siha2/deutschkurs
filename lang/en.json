@@ -11,5 +11,24 @@
   "done": "Done",
   "save": "Save",
   "see_more": "See More",
-  "see_less": "See Less"
+  "see_less": "See Less",
+
+  "tables": "Tables",
+  "define_articles": "Define Articles",
+  "singular_and_plural": "Singular and Plural",
+  "always_plural": "Always Plural",
+  "cases": "Cases",
+  "verbs": "Verbs",
+  "partizip_II": "Partizip II",
+  "personal_Pronouns": "Personal Pronouns",
+  "games": "Games",
+  "hangman": "Hangman",
+  "guess_the_word": "Guess the Word",
+  "phrases": "Phrases",
+  "created_by": "This website was created by",
+
+  "my_words": "My Words",
+  "add_word": "Add Word",
+  "home": "Home",
+  "settings": "Settings"
 }

@@ -11,5 +11,24 @@
   "done": "تم",
   "save": "حفظ",
   "see_more": "عرض المزيد",
-  "see_less": "عرض أقل"
+  "see_less": "عرض أقل",
+
+  "tables": "الجداول",
+  "define_articles": "أدوات التعريف",
+  "singular_and_plural": "المفرد والجمع",
+  "always_plural": "دائما جمع",
+  "cases": "الحالات الإعرابية",
+  "verbs": "الأفعال",
+  "partizip_II": "Partizip II",
+  "personal_Pronouns": "الضمائر الشخصية",
+  "games": "العاب",
+  "hangman": "لعبة الشنق",
+  "guess_the_word": "خمن الكلمة",
+  "phrases": "عبارات",
+  "created_by": "تم إنشاء هذا الموقع بواسطة",
+
+  "my_words": "كلماتي",
+  "add_word": "إضافة كلمة",
+  "home": "الرئيسية",
+  "settings": "الإعدادات"
 }

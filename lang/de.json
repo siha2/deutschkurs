@@ -11,5 +11,24 @@
   "done": "Okay",
   "save": "Gespeichert",
   "see_more": "Mehr sehen",
-  "see_less": "Weniger sehen"
+  "see_less": "Weniger sehen",
+
+  "tables": "Tabellen",
+  "define_articles": "Bestimmter Artikel",
+  "singular_and_plural": "Singular und Plural",
+  "always_plural": "Immer Plural",
+  "cases": "Kasus",
+  "verbs": "Verben",
+  "partizip_II": "Partizip II",
+  "personal_Pronouns": "Personalpronomen",
+  "games": "Spiele",
+  "hangman": "Galgenmännchen",
+  "guess_the_word": "Errate das Wort",
+  "phrases": "Sätze",
+  "created_by": "Die Seite wurde erstellt von",
+
+  "my_words": "Meine Wörter",
+  "add_word": "Wort hinzufügen",
+  "home": "Startseite",
+  "settings": "Einstellungen"
 }

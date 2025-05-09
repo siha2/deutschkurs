@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const header = document.querySelector(".the-header");
       if (!header) throw new Error("Header element (.the-header) not found");
       header.innerHTML = data;
+      updateTexts();
     });
 
   // Load tables
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const newEl = document.createElement("div");
       newEl.innerHTML = data;
       target.after(...newEl.childNodes);
+      updateTexts();
     });
 
   // After both header and tables are loaded, initialize tables and features

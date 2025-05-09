@@ -12,9 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const navLinks = document.querySelector("#nav-links");
       if (!navLinks) throw new Error("Nav links element (#nav-links) not found");
       navLinks.innerHTML = `
-        <li><a href="index.html">Hauptseite</a></li>
-        <li><a href="settings.html">Einstellungen</a></li>
+        <li><a href="index.html" data-i18n="home"></a></li>
+        <li><a href="settings.html" data-i18n="settings"></a></li>
       `;
+      updateTexts();
     });
 
   // Load tables
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const content = document.querySelector(".tables .content");
       if (!content) throw new Error("Tables content element (.tables .content) not found");
       content.innerHTML = data;
+      updateTexts();
     });
 
   // After both header and tables are loaded, initialize features and events
