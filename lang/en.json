@@ -13,6 +13,9 @@
   "see_more": "See More",
   "see_less": "See Less",
 
+  "hello": "Hello: ",
+  "today_is": "Today is: ",
+  "its": "It's: ",
   "tables": "Tables",
   "define_articles": "Define Articles",
   "singular_and_plural": "Singular and Plural",

@@ -103,9 +103,14 @@ async function fetchLatestUpdateDates() {
   const response = await fetch('https://api.github.com/repos/siha2/deutschkurs/commits');
   const data = await response.json();
 
+  const lang = localStorage.getItem('lang') || 'de';
+  let locale = 'de-DE';
+  if (lang === 'ar') locale = 'ar-EG';
+  else if (lang === 'en') locale = 'en-US';
+
   allDates = data.map(commit => {
     const commitDate = new Date(commit.commit.committer.date);
-    return commitDate.toLocaleDateString('de-DE', {
+    return commitDate.toLocaleDateString(locale, {
       year: 'numeric',
       month: 'long',
       day: 'numeric',

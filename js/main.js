@@ -71,18 +71,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateDateTime() {
     const todayDate = new Date();
+
+    const lang = localStorage.getItem('lang') || 'de';
+
+    let locale = 'de-DE';
+    if (lang === 'ar') locale = 'ar-EG';
+    else if (lang === 'en') locale = 'en-US';
+
     if (today) {
-      today.innerHTML = todayDate.toLocaleDateString('de-DE', { weekday: 'long' });
+      today.innerHTML = todayDate.toLocaleDateString(locale, { weekday: 'long' });
     }
     if (date) {
-      date.innerHTML = todayDate.toLocaleDateString('de-DE', {
+      date.innerHTML = todayDate.toLocaleDateString(locale, {
         year: 'numeric',
         month: 'long',
         day: 'numeric'
       });
     }
     if (time) {
-      time.innerHTML = todayDate.toLocaleTimeString('de-DE', {
+      time.innerHTML = todayDate.toLocaleTimeString(locale, {
         hour: 'numeric',
         minute: 'numeric',
         second: 'numeric'
