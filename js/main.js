@@ -100,3 +100,57 @@ document.addEventListener("DOMContentLoaded", () => {
   updateDateTime();
   setInterval(updateDateTime, 1000);
 });
+
+// partizip II search
+const searchInput = document.querySelector('.sixth input[type="search"]');
+const cells = document.querySelectorAll('.table.partizip .cell');
+
+searchInput.addEventListener('input', function () {
+  const query = this.value.trim().toLowerCase();
+
+  cells.forEach(cell => {
+    const text = cell.textContent.toLowerCase().trim();
+    const isEmpty = text === '';
+
+    if (query === '') {
+      cell.style.display = '';
+    } else {
+      if (!isEmpty && text.includes(query)) {
+        cell.style.display = '';
+      } else {
+        cell.style.display = 'none';
+      }
+    }
+  });
+});
+
+// add note to some cells
+const cellsWithNote = document.querySelectorAll('.table.partizip .cell.note');
+
+cellsWithNote.forEach(cell => {
+  cell.addEventListener('click', function () {
+    const overlay = document.createElement('div');
+    overlay.classList.add('popup-overlay');
+    document.body.appendChild(overlay);
+
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
+    popup.innerHTML = `
+      <button class="popup-close">X</button>
+      <div class="popup-content">
+        تأتي مع sein او haben حسب المعني
+      </div>
+    `;
+    document.body.appendChild(popup);
+
+    const closeButton = popup.querySelector('.popup-close');
+    closeButton.addEventListener('click', () => {
+      document.body.removeChild(popup);
+      document.body.removeChild(overlay);
+    });
+    overlay.addEventListener('click', () => {
+      document.body.removeChild(popup);
+      document.body.removeChild(overlay);
+    });
+  });
+});
