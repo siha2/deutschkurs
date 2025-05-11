@@ -67,6 +67,31 @@
     display: none;
   }
 }
+.tables .similar .boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 30px 5px;
+}
+.tables .similar .boxes .box {
+  /* border: 1px solid var(--dark-main); */
+  border-radius: 5px;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+  background-color: #eee8;
+  box-shadow: 1px 1px 3px 0px #0000006b;
+  cursor: pointer;
+  padding: 10px 0;
+}
+.tables .similar .boxes .box:hover {
+  box-shadow: -1px -1px 3px 0px #0000006b;
+}
+.tables .similar .boxes .box .line {
+  display: flex;
+  justify-content: space-around;
+}
 /* end tables */
 /* start games */
 .games {
