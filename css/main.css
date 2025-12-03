@@ -70,13 +70,15 @@
     display: none;
   }
 }
-.tables .similar .boxes {
+.tables .similar .boxes,
+.tables .diff .boxes {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 30px;
   padding: 30px 5px;
 }
-.tables .similar .boxes .box {
+.tables .similar .boxes .box,
+.tables .diff .boxes .box {
   /* border: 1px solid var(--dark-main); */
   border-radius: 5px;
   display: flex;
@@ -94,6 +96,61 @@
 .tables .similar .boxes .box .line {
   display: flex;
   justify-content: space-around;
+}
+.tables .flages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.tables .flages img {
+  width: 50px;
+  height: 30px;
+}
+.tables .diff .main-word {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.tables .diff .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tables .diff .content > div {
+  width: 50%;
+  text-align: center;
+}
+.tables .diff .content img {
+  width: 100%;
+  height: 120px;
+}
+.tables .diff .content .ar-word {
+  position: relative;
+  display: inline-block;
+  /* color: white;  */
+  /* -webkit-text-stroke: 1px black; */
+  font-size: 24px;
+  padding: 10px 20px;
+  z-index: 1;
+}
+.tables .diff .content .ar-word::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: -1;
+}
+.tables .diff .content .l .ar-word::before {
+  background-image: url('../photos/diff/g.png');
+}
+.tables .diff .content .r .ar-word::before {
+  background-image: url('../photos/diff/u.webp');
 }
 /* end tables */
 /* start games */
