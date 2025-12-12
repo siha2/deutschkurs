@@ -90,8 +90,12 @@
   cursor: pointer;
   padding: 10px 0;
 }
-.tables .similar .boxes .box:hover {
-  box-shadow: -1px -1px 3px 0px #0000006b;
+.tables .diff .boxes .box.colored {
+  background-color: var(--light-main);
+}
+.tables .similar .boxes .box:hover,
+.tables .diff .boxes .box:hover {
+  box-shadow: 1px 1px 8px 0px #0000006b;
 }
 .tables .similar .boxes .box .line {
   display: flex;
@@ -111,6 +115,8 @@
   font-weight: bold;
   text-align: center;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
 }
 .tables .diff .content {
   display: flex;
@@ -120,37 +126,20 @@
 .tables .diff .content > div {
   width: 50%;
   text-align: center;
+  font-size: 22px;
+  box-shadow: inset 1px 1px 18px 0px #0000001f;
+  margin: 5px;
+  border-radius: 5px;
+  padding-top: 10px;
 }
-.tables .diff .content img {
+.tables .diff .content img:first-child {
   width: 100%;
   height: 120px;
+  object-fit: contain;
 }
-.tables .diff .content .ar-word {
-  position: relative;
-  display: inline-block;
-  /* color: white;  */
-  /* -webkit-text-stroke: 1px black; */
-  font-size: 24px;
-  padding: 10px 20px;
-  z-index: 1;
-}
-.tables .diff .content .ar-word::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.3;
-  z-index: -1;
-}
-.tables .diff .content .l .ar-word::before {
-  background-image: url('../photos/diff/g.png');
-}
-.tables .diff .content .r .ar-word::before {
-  background-image: url('../photos/diff/u.webp');
+.tables .diff .content img:nth-child(3) {
+  width: 30px;
+  height: 20px;
 }
 /* end tables */
 /* start games */

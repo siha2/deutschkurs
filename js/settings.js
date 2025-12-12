@@ -100,7 +100,7 @@ let allDates = [];
 let showingAll = false;
 
 async function fetchLatestUpdateDates() {
-  const response = await fetch('https://api.github.com/repos/siha2/deutschkurs/commits');
+  const response = await fetch('https://api.github.com/repos/siha2/deutschkurs/commits?per_page=100');
   const data = await response.json();
 
   const lang = localStorage.getItem('lang') || 'de';
