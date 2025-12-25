@@ -57,6 +57,17 @@
 .tables .kasus td.verben {
   text-wrap: auto;
 }
+.tables .verb-name {
+  margin-left: calc(50% - 36px);
+}
+.tables .verbs .nowrap {
+  white-space: nowrap;
+}
+.tables .verbs tr td:first-child {
+  background-color: var(--dark-grey);
+  /* position: sticky;
+  left: 0; */
+}
 .tables .partizip .cell {
   height: 40px;
 }
