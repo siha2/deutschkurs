@@ -38,7 +38,7 @@
 .tables .kasus .table-container tr.dark td:not(:first-child) {
   background-color: var(--dark-grey);
 }
-.tables .kasus .table-container {
+.tables .table-container {
   overflow: auto;
 }
 .tables .kasus tr td:nth-child(1) {
@@ -99,7 +99,8 @@
 }
 .tables .similar .boxes .box .line {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 10px;
 }
 .tables .flages {
   display: flex;

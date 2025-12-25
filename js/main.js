@@ -101,28 +101,33 @@ document.addEventListener("DOMContentLoaded", () => {
   setInterval(updateDateTime, 1000);
 });
 
-// partizip II search
+// search function
+function setupSearch(searchInput, elements) {
+  searchInput.addEventListener('input', function () {
+    const query = this.value.trim().toLowerCase();
+
+    elements.forEach(el => {
+      const text = el.textContent.toLowerCase().trim();
+      const isEmpty = text === '';
+
+      if (query === '') {
+        el.style.display = '';
+      } else {
+        el.style.display = (!isEmpty && text.includes(query)) ? '' : 'none';
+      }
+    });
+  });
+}
+
+// Partizip II search
 const searchInput = document.querySelector('.sixth input[type="search"]');
 const cells = document.querySelectorAll('.table.partizip .cell');
+setupSearch(searchInput, cells);
 
-searchInput.addEventListener('input', function () {
-  const query = this.value.trim().toLowerCase();
-
-  cells.forEach(cell => {
-    const text = cell.textContent.toLowerCase().trim();
-    const isEmpty = text === '';
-
-    if (query === '') {
-      cell.style.display = '';
-    } else {
-      if (!isEmpty && text.includes(query)) {
-        cell.style.display = '';
-      } else {
-        cell.style.display = 'none';
-      }
-    }
-  });
-});
+// Similar Words search
+const similarSearchInput = document.querySelector('.similar .features input[type="search"]');
+const similarBoxes = document.querySelectorAll('.similar .box');
+setupSearch(similarSearchInput, similarBoxes);
 
 // add note to some cells
 const cellsWithNote = document.querySelectorAll('.table.partizip .cell.note');
